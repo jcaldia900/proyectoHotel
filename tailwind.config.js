@@ -18,7 +18,8 @@ module.exports = {
 			},
 			fontFamily: {
 				'sans': 'Heebo, sans-serif',
-				'letraPrincipal':'Ibarra Real Nova'			
+				'letraPrincipal':'Ibarra Real Nova'	,
+				'letraHeader':'Dancing Script'		
 			}
 		}	
 	},
