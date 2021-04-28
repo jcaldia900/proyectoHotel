@@ -4,9 +4,9 @@
 
 {% include "partials/top.njk" %}
 <div class=" w-screen" style="background: url(/images/fondo.jpeg) no-repeat center center;background-size:cover ;">
-    <div class="swiper-container h-screen	" style=" width: 80%;">
-        <div class="swiper-wrapper mt-20">
-            <div class="swiper-slide"
+    <div class="swiper-container h-screen" style=" width: 80%;">
+        <div class="swiper-wrapper mt-20 ">
+            <div class="swiper-slide rounded-lg"
                 style="background: url(/images/spa.jpeg) no-repeat center center;background-size:cover">
                 <div>
                     <h1 class="text-white uppercase sm:text-3xl md:text-5xl lg:text-6xl mb-10 "> spa thalasso
@@ -17,7 +17,7 @@
                     </button>
                 </div>
             </div>
-            <div class="swiper-slide"
+            <div class="swiper-slide rounded-lg"
                 style="background: url(/images/golf.jpeg)no-repeat center center;background-size:cover">
                 <div>
                     <h1 class="text-white uppercase sm:text-3xl md:text-5xl lg:text-6xl mb-10 "> campos de golf</h1>
@@ -26,7 +26,7 @@
                     <button class="uppercase px-10 py-5 bg-brownbutton text-white text-sans">leer más</button>
                 </div>
             </div>
-            <div class="swiper-slide"
+            <div class="swiper-slide rounded-lg"
                 style="background: url(/images/masajes.jpeg)no-repeat center center;background-size:cover">
                 <div>
                     <h1 class="text-white uppercase sm:text-3xl md:text-5xl lg:text-6xl mb-10 "> sesión de masaje</h1>
@@ -36,7 +36,7 @@
                 </div>
 
             </div>
-            <div class="swiper-slide"
+            <div class="swiper-slide rounded-lg"
                 style="background: url(/images/cena.jpeg) no-repeat center center;background-size:cover">
                 <div>
                     <h1 class="text-white uppercase sm:text-3xl md:text-5xl lg:text-6xl mb-10 "> gastronomía </h1>
@@ -49,27 +49,86 @@
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
     </div><br>
-    <div class="lg:flex lg:items-center m-auto w-[80%] md:h-[700px]">
-        <div class="lg:w-1/2 md:h-full" >
-            <div class="bg-white bg-opacity-50 md:h-full lg:w-2/4 mx-auto" >
-                <h1 class="text-center text-2xl text-yellow-900 ">Historia</h1>
-                <h2 class="text-center sm:my-5 md:my-10 lg:my-20 w-9/12 mx-auto sm:text-xs md:text-sm lg:text-base">
-                    Hotel del sur nació como un proyecto de 2 amigos sevillanos, los cuales les gustaba el ámbito de la
-                    hostelería y el ocio, su construcción empezó en el año 2008 y su inaguración tuvo lugar el 1 de junio
-                    del 2010.
-                    El hotel comenzó con tan sólo 100 habitaciones, a lo que acompañado con una demanda excepcional año tras
-                    año, se decidió ampliar hasta las 200 habitaciones. En la actualidad, es referencia de la Costa de la
-                    luz, con más de 2500 opiniones en tripadvisor, se sitúa en el nº1 de Chipiona y de la provincia de
-                    Cádiz, por la calidad brindada en sus servicios.
-                </h2>
+    <div class="lg:container mx-auto sm:w-[80%] lg:w-[80%] ">
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 sm: gap-10 md:gap-14 lg:gap-20 ">
+            <div class="m-auto md:h-full">
+                <div class="bg-white bg-opacity-50 md:h-full mx-auto rounded-lg">
+                    <h1 class="text-center text-2xl text-yellow-900 pt-5">Historia</h1>
+                    <h2 class="text-center sm:my-5 md:my-10 lg:my-16 w-9/12 mx-auto sm:text-xs md:text-sm lg:text-base">
+                        Hotel del sur nació como un proyecto de 2 amigos sevillanos, los cuales les gustaba el ámbito de
+                        la
+                        hostelería y el ocio,apostaron por las tierras gaditanas situadas en la zona sur de la localidad
+                        de Chipiona.
+                        <br>
+                        Su construcción empezó en el año 2008 y su inaguración tuvo lugar el 1 de junio
+                        del 2010.<br>
+                        El hotel comenzó con tan sólo 100 habitaciones, a lo que acompañado con una demanda excepcional
+                        año tras
+                        año, se decidió ampliar hasta las 200 habitaciones. En la actualidad, es referencia de la Costa
+                        de la
+                        luz, con más de 2500 opiniones en tripadvisor, se sitúa en el nº1 de Chipiona y de la provincia
+                        de
+                        Cádiz, por la calidad brindada en sus servicios.
+                    </h2>
+                </div>
             </div>
-        </div>
-        <div class="lg:w-1/2 m-auto md:h-full">
-            <img src="/images/hotel.jpeg" alt="" class="w-full h-full object-cover">
+
+            <div class="m-auto md:h-full  card-zoom">
+                <img src="/images/hotel.jpeg" alt="" class="w-full h-full object-cover rounded-lg card-zoom-image">
+            </div>
         </div>
     </div>
     <br>
-    
+    <section class="bg-white bg-opacity-50 container mx-auto w-4/5 pt-10 rounded-lg">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 ml-28 mr-28 mb-4 mt-4 ">
+            <div class="overflow-visible ">
+                <div class="card-zoom flex items-center justify-center">
+                    <img class="no-repeat h-[150px] center center card-zoom-image"
+                        src="/images/cocina.jpeg"
+                        alt="cocinaHotel" style="background-size:cover">
+                </div>
+                <br />
+                <h4 class=" text-center sm:text-sm md:text-2xl lg:text-3xl uppercase">gastronomía</h4>
+                <br />
+                <p class="text-textcolorP text-center ">
+                    Nuestro hotel cuenta con el más prestigioso personal de toda la costa de la luz. Especialidado en distintos pescados de la zona, disfrutarás de sabrosos platos llenos de sabor y modernidad.</p>
+                <a href="#"
+                    class="hover:text-text-blue-500 flex items-center justify-center  mt-3 text-blue-500 underline">Más sobre el restaurante. →</a>
+            </div>
+            <div class="overflow-visible">
+                <div class="card-zoom flex items-center justify-center">
+
+                    <img class="no-repeat h-[150px] center center card-zoom-image"
+                        src="/images/espacios.jpeg"
+                        alt="entorno" style="background-size:cover">
+                </div>
+                <br />
+                <h4 class="sm:text-sm md:text-2xl lg:text-3xl text-center uppercase">entorno
+                </h4>
+                <br />
+                <p class="text-textcolorP text-center">Nuestro hotel está ubicado a 100 metros de la playa de regla, siendo ésta una de las más demandadas por los visitantes año tras año.Nos encontramos además a escasos 5 minutos andando del centro,y a unos 10 minutos en coche de la localidad vecina Sanlúcar de Barrameda</p> <a href=""
+                    class="hover:text-text-blue-500 flex items-center justify-center mt-3 text-blue-500 underline">Más sobre el entorno del hotel →</a>
+            </div>
+            <div class="overflow-visible ">
+                <div class="card-zoom flex items-center justify-center">
+                    <img class="no-repeat h-[150px] center center card-zoom-image"
+                        src="/images/visita.jpeg"
+                        alt="quevisitar" style="background-size:cover;">
+                </div>
+                <br />
+                <h4 class="sm:text-sm md:text-2xl lg:text-3xl text-center uppercase">¿Qué hacer?
+                </h4>
+                <br />
+                <p class="text-textcolorP text-center">En nuestra localidad si algo es característico de ella es el amplio abanico de posibilidades de disfrutar en cada rincón, por eso, recomendamos a nuestros clientes que se visiten el santuario de regla,las distintas iglesias, el castillo-museo...</p> <a href=""
+                    class="hover:text-blue-500 flex items-center justify-center mt-3 text-blue-500 underline">Más sobre visitas turísticas →</a>
+            </div>
+
+   
+        </div>
+    </section>
+    <section >
+        <script type="text/javascript" src="https://form.jotform.com/jsform/211172114539044"></script>
+    </section>
 </div>
 
 
