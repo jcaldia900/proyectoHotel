@@ -1,0 +1,49 @@
+---
+pagination:
+ data: restaurante
+ size: 1
+ alias: item
+permalink: "{{ item.tituloRestaurante | slug }}/"
+---
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+
+{% include "partials/top.njk" %}
+<div class=" w-screen" style="background: url(/images/fondo.jpeg) no-repeat center center;background-size:cover ;">
+    <h1 class="uppercase text-center pt-10 sm:text-lg md:text-3xl lg:text-5xl bold font-letraHeader">
+        {{item.tituloRestaurante}}</h1> <br>
+    <div
+        class="container m-auto grid grid-cols-1 content-center justify-center items-center bg-white bg-opacity-50 rounded-xl ">
+
+
+        <div class="pt-10 sm:pb-3 lg:pt-24 lg:pb-6 md:pt-20 md:pb-4 text-center">
+            <div class=" md:flex card-zoom">
+                <img src="{{item.imagen.url}}" alt=""
+                    class="md:w-[250px] lg:w-[300px] xl:w-[350px] card-zoom-image object-cover">
+                
+                    <h1 class="titulo py-5 px-5 sm:text-lg md:text-xl lg:text-3xl uppercase md:float-left w-full">
+                        {{item.frase}}</h1>
+                <div class="flex flex-col">
+                    <p class="parrafo text-xs text-gray-600 py-5 px-5 md:w-1/2 md:float-left">
+                        {{item.descripcionRestaurante}}</p>
+                    <p class="parrafo text-xs text-gray-600 py-5 px-5 md:w-1/2 md:float-left">{{item.horario}}</p>
+                    <p class="parrafo text-xs text-gray-600 py-5 px-5 md:w-1/2 md:float-left">
+                        {{item.tipoRestaurante}}</p>
+                </div>
+                
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <br>
+</div>
+
+
+
+{% include "partials/footer.njk" %}
+{% endblock %}

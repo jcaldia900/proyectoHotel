@@ -13,15 +13,23 @@ module.exports = async function () {
     body: JSON.stringify({
       query: `
       query MyQuery {
-        AllHabitaciones {
+        AllRestaurantes {
+          tituloRestaurante
+          tipoRestaurante
+          frase
+          horario
           id
-          imagenHabitacion {
+          imagen {
             url
           }
-          tituloHabitacion
-          descripcionHabitacion
+          imagenesSlider {
+            url
+          }
+          descripcionRestaurante
         }
       }
+      
+      
       
   
   
@@ -31,7 +39,7 @@ module.exports = async function () {
     .then((res) => res.json())
     .then((json) => {
       
-      return json.data.AllHabitaciones;
+      return json.data.AllRestaurantes;
     })
     .catch((error) => {
       console.log(error);

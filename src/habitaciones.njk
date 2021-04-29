@@ -1,23 +1,22 @@
----
-pagination:
- data: habitacion
- size: 1
- alias: item
 
----
 {% extends "layouts/default.njk" %}
 
 {% block content %}
 
 {% include "partials/top.njk" %}
 <div class=" w-screen" style="background: url(/images/fondo.jpeg) no-repeat center center;background-size:cover ;">
-
+    <h1 class="uppercase text-center pt-10 sm:text-lg md:text-3xl lg:text-5xl bold font-letraHeader">habitaciones del hotel</h1> <br>
     <div
-        class="container mx-auto grid grid-cols-1 content-center sm:grid-cols-1 lg:grid-cols-2 justify-center items-center ">
+        class="container mx-auto grid grid-cols-1 content-center sm:grid-cols-1 lg:grid-cols-2 justify-center items-center bg-white bg-opacity-70 rounded-xl my-auto" >
+        
+
         {% for hab in habitacion %}
-        <div class=" sm:pt-10 sm:pb-3 lg:pt-32 lg:pb-6 md:pt-20 md:pb-4 text-center">
+        
+        <div class=" pt-10 sm:pb-3 lg:pt-32 lg:pb-6 md:pt-20 md:pb-4 text-center">
             <div class="md:flex card-zoom">
+                
                 <img src="{{hab.imagenHabitacion.url}}" alt="" class="md:w-[250px] lg:w-[275px] xl:w-[300px] card-zoom-image ">
+            
                 <div>
                     <h1 class="py-5 px-5 sm:text-lg md:text-xl lg:text-3xl uppercase">{{hab.tituloHabitacion}}</h1>
                     <p class="text-xs text-gray-600 py-5 px-5">{{hab.descripcionHabitacion}}</p>
@@ -26,7 +25,7 @@ pagination:
 
         </div>
         {% endfor %}
-    </div>
+    </div> <br>
 
 
 </div>
