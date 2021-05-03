@@ -1,0 +1,61 @@
+---
+pagination:
+ data: habitacion
+ size: 1
+ alias: item
+permalink: "{{ item.tituloHabitacion | slug }}/"
+---
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+
+{% include "partials/top.njk" %}
+<div class=" w-screen" style="background: url(/images/fondo.jpeg) no-repeat center center;background-size:cover ;">
+    <h1 class="uppercase text-center pt-10 sm:text-lg md:text-3xl lg:text-5xl bold font-letraHeader">
+        {{item.tituloHabitacion}}</h1> <br>
+    <div
+        class="container m-auto grid grid-cols-1 content-center justify-center items-center bg-white bg-opacity-50 rounded-xl ">
+
+
+        <div class="md:flex pt-8 sm:pb-3 lg:pt-20 lg:pb-6 md:pt-16 md:pb-4 text-center">
+            
+                <img src="{{item.imagenHabitacion.url}}" alt=""
+                    class="md:w-[300px] lg:w-[400px] xl:w-[500px] card-zoom-image object-cover">
+                <div class="text-center w-full">
+                    <h1 class="titulo py-5 px-5 sm:text-lg md:text-xl lg:text-3xl uppercase w-full">
+                        servicios </h1>
+
+                        <div class="mx-auto w-[300px]">
+                        {% for iconos in item.iconos %}
+                        <div class="flex w-full items-center">
+                            <div class="">
+                                <img src="{{iconos.icono.url}}" alt=""
+                                class="w-[15px] h-[15px] md:w-[20px] md:h-[20px] lg:w-[25px] lg:h-[20px] xl:w-[30px] xl:h-[30px] card-zoom-image">
+                            </div>
+                            <div class="">
+                                <p class="">{{iconos.nombreIcono}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        </div>
+                    <br>
+
+                    <h1 class="uppercase">{{item.subtitulo}}</h1>
+                    
+                </div>
+
+            
+
+        </div>
+
+
+
+    </div>
+
+    <br>
+</div>
+
+
+
+{% include "partials/footer.njk" %}
+{% endblock %}
