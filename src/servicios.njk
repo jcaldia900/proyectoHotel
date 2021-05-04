@@ -1,0 +1,63 @@
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+
+{% include "partials/top.njk" %}
+
+<div class=" w-screen" style="background: url(/images/fondo.jpeg) no-repeat center center;background-size:cover ;">
+    <h2>En nuestro hotel,podrás disfrutar de innumerables servicios, es por ello q</h2>
+    <div class=" w-screen" style="background: url(/images/fondo.jpeg) no-repeat center center;background-size:cover ;">
+
+        <div class="container m-auto content-center justify-center items-center bg-white bg-opacity-50 rounded-xl ">
+            <div data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"">
+                <h2 class="text-center">SERVICIOS GRATUITOS</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3">
+                    {% for ser in servicio %}
+                    {% if ser.gratuito==true %}
+                    <div class="pt-10 sm:pb-3 lg:pt-24 lg:pb-6 md:pt-20 md:pb-4 text-center">
+                        <div class=" md:flex row card-zoom justify-center items-center">
+                            <img src="{{ser.iconoServicio.url}}" alt=""
+                                class="w-[20px] lg:w-[30px] xl:w-[50px] h-[20px] lg:h-[30px] xl:h-[50px] card-zoom-image object-cover">
+
+                            <p class="titulo md:py-5 md:px-5 text-xs md:text-base lg:text-lg uppercase w-full">
+                                {{ser.nombreServicio}}</p>
+
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div>
+            <div data-aos="fade-left"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine">
+                <h2 class="text-center">SERVICIOS DE PAGO</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3">
+                    {% for serPago in servicio %}
+                    {% if serPago.gratuito==false %}
+                    <div class="pt-10 sm:pb-3 lg:pt-24 lg:pb-6 md:pt-20 md:pb-4 text-center">
+                        <div class=" md:flex row card-zoom">
+                            <img src="{{serPago.iconoServicio.url}}" alt=""
+                                class="w-[20px] lg:w-[30px] xl:w-[50px] h-[20px] lg:h-[30px] xl:h-[50px] card-zoom-image object-cover">
+
+                            <p class="titulo py-5 px-5 text-xs md:text-base lg:text-lg  uppercase w-full">
+                                {{serPago.nombreServicio}}</p>
+                        </div>
+
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <br>
+    </div>
+
+
+</div>
+{% include "partials/footer.njk" %}
+{% endblock %}

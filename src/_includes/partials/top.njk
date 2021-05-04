@@ -1,36 +1,83 @@
-<header class="  h-45 overflow-hidden" style="background: url(/images/playa.jpeg) no-repeat center center; background-size: cover;" >
-    
+<header class="  h-45 relative"
+    style="background: url(/images/playa.jpeg) no-repeat center center; background-size: cover;">
+
     <div class="container ">
-        <div class="flex m-0 justify-between">
-        <div alt="logoHotel" class="object-left w-1/5">
-            <a href="../">
-             <img src="/images/hoteldelsur.png">
-         </a>
-        </div>
+        <div class="flex m-0 justify-between relative">
+            <div alt="logoHotel" class="object-left w-1/5">
+                <a href="../">
+                    <img src="/images/hoteldelsur.png">
+                </a>
+            </div>
 
 
-        <div class="hidden md:flex md:items-center  md:space-x-6 lg:space-x-12 " >
+            <div class="hidden md:flex md:items-center  md:space-x-6 lg:space-x-12 ">
 
-            <!--anadirr las columnas para q aparezcan md 2 lg 3 ,,,,,-->
-            <a href="../" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">hotel</a>
-            <a href="/habitaciones" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">habitaciones</a>
-            <a href="/restaurantes" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">restaurantes</a>
-            <a href="#" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">servicios</a>
-            <a href="#" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">galeria</a>
-            <a href="#" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">entorno</a>
-            <a href="#" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">contacto</a>
+                <!--anadirr las columnas para q aparezcan md 2 lg 3 ,,,,,-->
+                <a href="../" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">hotel</a>
+                <a href="/habitaciones"
+                    class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">habitaciones</a>
+                <a href="/restaurantes"
+                    class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">restaurantes</a>
+                <a href="/servicios" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">servicios</a>
+                <a href="#" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">galeria</a>
+                <a href="#" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">entorno</a>
+                <a href="#" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">contacto</a>
 
+
+            </div>
+
+
+            <div class="flex none sm:space-x-4 sm:float-left md:hidden">
+                <a id="menuMobile" onclick="navMobile.menuMobile()"
+                    class="hover:text-brownbutton flex mx-auto justify-center items-center">
+
+                    <p class="uppercase">
+                        menú
+                    </p>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+
+                </a>
+            </div>
+
+       
 
         </div>
         
-            <nav class="flex items-center sm:space-x-2 md:hidden">
-                
-                    <a href="#" class=" uppercase sm:text-sm md:text-base">menú </a>
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                
-            </nav>
-        
     </div>
-    </div>
+    <div class="md:hidden absolute z-10 left-0  w-full">
+        <div id="menu-box-mobile" class="  flex flex-col-1 -mt-12  border-t-2 border-gray-200 "
+            style="top:165px; min-height: 100%;min-width: 100%;"> <!--invisible aqui-->
+            <div class="container  bg-white " style=" min-height: 100%;min-width: 100%;">
+                <ul class="flex flex-col ">
+                    <div class="hidden md:flex md:items-center  md:space-x-6 lg:space-x-12 ">
 
+                        <!--anadirr las columnas para q aparezcan md 2 lg 3 ,,,,,-->
+                        <a href="../"
+                            class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">hotel</a>
+                        <a href="/habitaciones"
+                            class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">habitaciones</a>
+                        <a href="/restaurantes"
+                            class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">restaurantes</a>
+                        <a href="/servicios"
+                            class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">servicios</a>
+                        <a href="#"
+                            class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">galeria</a>
+                        <a href="#"
+                            class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">entorno</a>
+                        <a href="#"
+                            class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader">contacto</a>
+
+
+                    </div>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
 </header>

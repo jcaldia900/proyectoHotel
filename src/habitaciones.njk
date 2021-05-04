@@ -7,31 +7,29 @@
     <h1 class="uppercase text-center pt-10 sm:text-lg md:text-3xl lg:text-5xl bold font-letraHeader italic">habitaciones
         del
         hotel</h1> <br>
+     <!---->   
     <div
-        class="container bg-white bg-opacity-70 rounded-xl">
+        class="hidden md:grid md:container md:bg-white md:bg-opacity-70 md:rounded-xl md:m-auto lg:pt-20 lg:pb-6 md:pt-12 md:pb-4">
 
-        <div class="grid grid-cols-2 gap-8">
+        <div class=" md:grid md:grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-8 m-auto ">
             
                     {% for hab in habitacion %}
             
             
-                        <div class="flex h-[200px] space-x-4">
-                            <div class="w-[250px] flex-shrink-0" >
+                        <div class="sm:flex h-400 md:h-[200px] lg:h-[200px] xl:h-[300px] sm:space-x-4 " data-aos="fade-left">
+                            <div class="flex-shrink-0 card-zoom" >
                                 <a href="/{{hab.tituloHabitacion | slug }}">
-                                    <img src="{{hab.imagenHabitacion.url}}" alt="" class="h-full object-cover">
+                                    <img src="{{hab.imagenHabitacion.url}}" alt="" class=" w-[300px] md:w-[200px] lg:w-[275px] xl:w-[350px] h-full object-cover card-zoom-image">
                                 </a>
                             </div>
 
-
-
-
-                            <div class="flex flex-col justify-between py-2 bg-red-300 w-full">
+                            <div class="flex flex-col justify-between py-2  w-full h-auto " data-aos="fade-up-right">
                                 <div>
-                                    <h1 class="py-5 px-5 sm:text-lg md:text-xl lg:text-3xl uppercase">{{hab.tituloHabitacion}}</h1>
-                                    <p>{{hab.descripcionHabitacion}}</p>
+                                    <h1 class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center">{{hab.tituloHabitacion}}</h1>
+                                    <p class="text-xs md:text-sm">{{hab.descripcionHabitacion}}</p>
                                 </div>
-                                <div class="">
-                                    <a href="/{{hab.tituloHabitacion | slug }}" class="py-5 px-5 bg-blue-600 rounded-xl uppercase m-auto"> leer más</a>
+                                <div class="flex justify-center items-center">
+                                    <a href="/{{hab.tituloHabitacion | slug }}" class="py-2 px-2  md:py-5 md:px-5 bg-blue-600 rounded-xl uppercase "> leer más</a>
                                 </div>
                             </div>
 
@@ -44,9 +42,32 @@
 
         </div>
 
+    </div>
 
+    <div
+    class="md:hidden container mx-auto grid grid-cols-1 content-center sm:grid-cols-1 xl:grid-cols-2 justify-center items-center bg-white bg-opacity-70 rounded-xl my-auto" >
+    
 
+    {% for hab in habitacion %}
+    
+    <div class=" pt-10 sm:pb-3 lg:pt-32 lg:pb-6 md:pt-20 md:pb-4 text-center">
+        <div class="md:flex card-zoom" data-aos="fade-up"
+        data-aos-duration="1500"> 
+            
+            <img src="{{hab.imagenHabitacion.url}}" alt="" class="md:w-[200px] lg:w-[275px] xl:w-[350px] md:h-[200px] lg:h-[200px] xl:h-[300px] card-zoom-image flex-shrink-0 object-cover">
+        
+            <div >
+                <h1 class="py-5 px-5 sm:text-lg md:text-xl lg:text-3xl uppercase text-center">{{hab.tituloHabitacion}}</h1>
+                <p class="text-xs text-gray-600 py-5 px-5">{{hab.descripcionHabitacion}}</p>
+            </div>
+            <div class="flex justify-center items-center">
+                <a href="/{{hab.tituloHabitacion | slug }}" class="py-2 px-2  md:py-5 md:px-5 bg-blue-600 rounded-xl uppercase "> leer más</a>
+            </div>
+        </div>
 
+    </div>
+    {% endfor %}
+</div> <br>
 
 
 

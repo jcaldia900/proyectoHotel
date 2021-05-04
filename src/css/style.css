@@ -72,7 +72,25 @@ footer {
 
 .padre:nth-child(odd) .hijo {
   flex-direction: row-reverse;
+  
 }
+.menu-box{
+  display: none;
+}
+
+.menuopen{
+  display: block;
+  
+  
+}
+.menu-box-mobile{
+  display: none;
+  }
+.menuopen-mobile{
+    display: block;
+    
+    
+  }
 @media (min-width: 768px) {
   .padre:nth-child(odd) .hijo .parrafo {
     float: right;
