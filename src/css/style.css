@@ -99,5 +99,8 @@ footer {
     float: right;
   }
 }
-
+.foot::before{
+  background-color:rgba(0,0,0,1);
+  content:""
+}
 @tailwind utilities;

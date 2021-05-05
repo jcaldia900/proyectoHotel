@@ -9,8 +9,9 @@ permalink: "{{ item.tituloHabitacion | slug }}/"
 
 {% block content %}
 
-{% include "partials/top.njk" %}
+
 <div class=" w-screen" style="background: url(/images/fondo.jpeg) no-repeat center center;background-size:cover ;">
+    {% include "partials/top.njk" %}
     <h1 class="uppercase text-center pt-10 sm:text-lg md:text-3xl lg:text-5xl bold font-letraHeader">
         {{item.tituloHabitacion}}</h1> <br>
     <div

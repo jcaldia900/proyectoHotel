@@ -2,22 +2,23 @@
 
 {% block content %}
 
-{% include "partials/top.njk" %}
 
-<div class=" w-screen" style="background: url(/images/fondo.jpeg) no-repeat center center;background-size:cover ;">
-    <h2>En nuestro hotel,podrás disfrutar de innumerables servicios, es por ello q</h2>
-    <div class=" w-screen" style="background: url(/images/fondo.jpeg) no-repeat center center;background-size:cover ;">
 
-        <div class="container m-auto content-center justify-center items-center bg-white bg-opacity-50 rounded-xl ">
-            <div data-aos="fade-right"
-            data-aos-offset="300"
-            data-aos-easing="ease-in-sine"">
-                <h2 class="text-center">SERVICIOS GRATUITOS</h2>
+<div class=" w-screen " style="background: url(/images/servicios.jpeg) no-repeat center center;background-size:cover ;">
+    {% include "partials/top.njk" %}
+   
+        <h2 class="uppercase text-center text-5xl p-5 font-letraHeader">servicios</h2>
+        <div class="container m-auto content-center justify-center items-center bg-white bg-opacity-60 rounded-xl " data-aos="fade-up"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine">
+            <div>
+                <h2 class="text-center p-5 text-blue-500 underline uppercase">servicios gratuitos</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3">
                     {% for ser in servicio %}
                     {% if ser.gratuito==true %}
-                    <div class="pt-10 sm:pb-3 lg:pt-24 lg:pb-6 md:pt-20 md:pb-4 text-center">
-                        <div class=" md:flex row card-zoom justify-center items-center">
+                   
+                    <div class="flex justify-center items-center pt-10 sm:pb-3 lg:pt-24 lg:pb-6 md:pt-20 md:pb-4 text-center ">
+                        <div class=" flex flex-row card-zoom  justify-center items-center w-3/4">
                             <img src="{{ser.iconoServicio.url}}" alt=""
                                 class="w-[20px] lg:w-[30px] xl:w-[50px] h-[20px] lg:h-[30px] xl:h-[50px] card-zoom-image object-cover">
 
@@ -31,15 +32,15 @@
                     {% endfor %}
                 </div>
             </div>
-            <div data-aos="fade-left"
-            data-aos-offset="300"
-            data-aos-easing="ease-in-sine">
-                <h2 class="text-center">SERVICIOS DE PAGO</h2>
+            <br>
+            <p class="pt-1 bg-white"></p><br>
+            <div>
+                <h2 class="text-center uppercase text-blue-500 underline">servicios de pago</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3">
                     {% for serPago in servicio %}
                     {% if serPago.gratuito==false %}
-                    <div class="pt-10 sm:pb-3 lg:pt-24 lg:pb-6 md:pt-20 md:pb-4 text-center">
-                        <div class=" md:flex row card-zoom">
+                    <div class="flex justify-center items-center pt-10 sm:pb-3 lg:pt-24 lg:pb-6 md:pt-20 md:pb-4 text-center">
+                        <div class=" flex row justify-center items-center card-zoom w-3/4">
                             <img src="{{serPago.iconoServicio.url}}" alt=""
                                 class="w-[20px] lg:w-[30px] xl:w-[50px] h-[20px] lg:h-[30px] xl:h-[50px] card-zoom-image object-cover">
 
@@ -55,7 +56,7 @@
         </div>
 
         <br>
-    </div>
+  
 
 
 </div>

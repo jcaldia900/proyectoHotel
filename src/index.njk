@@ -2,8 +2,9 @@
 
 {% block content %}
 
-{% include "partials/top.njk" %}
-<div class=" w-screen" style="background: url(/images/fondo.jpeg) no-repeat center center;background-size:cover ;">
+
+<div class=" w-screen" style="background: url(/images/chipiona.jpg) no-repeat center center;background-size:cover ;">
+    {% include "partials/top.njk" %}
     <div class="swiper-container h-screen" style=" width: 80%;">
         <div class="swiper-wrapper mt-20 ">
             <div class="swiper-slide rounded-lg"
@@ -79,8 +80,8 @@
         </div>
     </div>
     <br>
-    <section class="bg-white bg-opacity-50 container mx-auto w-4/5 pt-10 rounded-lg">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 ml-28 mr-28 mb-4 mt-4 ">
+    <section class="bg-white bg-opacity-50 container mx-auto md:w-4/5 pt-10 rounded-lg">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:gap-20 lg:mx-28 lg:my-4 ">
             <div class="overflow-visible ">
                 <div class="card-zoom flex items-center justify-center">
                     <img class="no-repeat h-[150px] center center card-zoom-image"
@@ -119,19 +120,17 @@
                 <h4 class="sm:text-sm md:text-2xl lg:text-3xl text-center uppercase">¿Qué hacer?
                 </h4>
                 <br />
-                <p class="text-textcolorP text-center">En nuestra localidad si algo es característico de ella es el amplio abanico de posibilidades de disfrutar en cada rincón, por eso, recomendamos a nuestros clientes que se visiten el santuario de regla,las distintas iglesias, el castillo-museo...</p> <a href=""
+                <p class="text-textcolorP text-center text-sm">En nuestra localidad si algo es característico de ella es el amplio abanico de posibilidades de disfrutar en cada rincón, por eso, recomendamos a nuestros clientes que se visiten el santuario de regla,las distintas iglesias, el castillo-museo...</p> <a href=""
                     class="hover:text-blue-500 flex items-center justify-center mt-3 text-blue-500 underline">Más sobre visitas turísticas →</a>
             </div>
 
    
         </div>
-    </section>
-    <section >
-        <script type="text/javascript" src="https://form.jotform.com/jsform/211172114539044"></script>
-    </section>
+    </section><br>
+    
 </div>
 
 
-
+{% include "partials/newsletter.njk" %}
 {% include "partials/footer.njk" %}
 {% endblock %}
