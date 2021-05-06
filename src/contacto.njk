@@ -1,0 +1,172 @@
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+
+
+<div class=" w-screen">
+    <div class=" w-screen h-full "
+        style="background: url(/images/chipiona.jpg) no-repeat center center;background-size:cover ;">
+
+        {% include "partials/top.njk" %}
+        <h1 class="uppercase text-white text-xl md:text-4xl font-letraHeader text-center"> contacto</h1><br>
+        <div class="flex flex-col  bg-white bg-opacity-50 h-4/5 md:w-4/5 mx-auto rounded-lg text-center">
+
+            <h2 class="uppercase  underline pt-10 text-xl md:text-2xl text-blue-500 pb-10">ya sólo queda venir a
+                conocernos...</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25581.114857499488!2d-6.44827144841094!3d36.731221767603586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e75a23be20167%3A0x166c05cf50644a01!2s11550%20Chipiona%2C%20C%C3%A1diz!5e0!3m2!1ses!2ses!4v1620290614832!5m2!1ses!2ses"
+                    style="border:0; margin:auto" allowfullscreen="" loading="lazy"
+                    class="w-full h-full md:py-10"></iframe>
+                <div class="flex flex-col h-full w-full">
+
+
+                    <div class="container mx-auto py-10">
+                        <div class="flex flex-col  items-center mx-auto">
+                            <p class="">Teléfono:955000039
+                            </p>
+                            <p class="">Email:hoteldelsur@gmail.com</p>
+                            <p class="">Dirección:Avenida del sur nº1, Chipiona
+                                </p>
+                            <p>CP:11550
+                                ESPAÑA</p><br>
+                        </div>
+                        <div class='flex max-w-sm w-full bg-white shadow-md rounded-lg overflow-hidden mx-auto'>
+                            <div class='w-2 bg-gray-800'></div>
+
+                            <div class='flex items-center px-2 py-3'>
+                                <form class="w-full max-w-lg">
+                                    <div class="flex flex-wrap -mx-3 mb-6">
+                                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                            <label
+                                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                                for="grid-first-name">
+                                                Nombre
+                                            </label>
+                                            <input
+                                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                                                id="grid-first-name" type="text" placeholder="José">
+                                            <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+                                        </div>
+                                        <div class="w-full md:w-1/2 px-3">
+                                            <label
+                                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                                for="grid-last-name">
+                                                Apellidos
+                                            </label>
+                                            <input
+                                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                id="grid-last-name" type="text" placeholder="Pérez">
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap -mx-3 mb-6">
+                                        <div class="w-full px-3">
+                                            <label
+                                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                                email
+                                            </label>
+                                            <input
+                                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                type="text" placeholder="introduzca su email">
+
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap -mx-3 mb-2">
+                                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                            <label
+                                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                                for="grid-city">
+                                                Ciudad
+                                            </label>
+                                            <input
+                                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                id="grid-city" type="text" placeholder="Chipiona">
+                                        </div>
+                                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                            <label
+                                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                                for="grid-state">
+                                                Comunidad
+                                            </label>
+                                            <div class="relative">
+                                                <select
+                                                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                    id="grid-state">
+                                                    <option>Madrid</option>
+                                                    <option>Andalucía</option>
+                                                    <option>Extremadura</option>
+                                                    <option>Cataluña</option>
+                                                    <option>P.Vasco</option>
+                                                </select>
+                                                <div
+                                                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20">
+                                                        <path
+                                                            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                            <label
+                                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                                for="grid-zip">
+                                                CP
+                                            </label>
+                                            <input
+                                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                id="grid-zip" type="text" placeholder="90210">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" text-white container flex justify-center  items-center m-auto pb-12 ">
+                        <a class=" hover:bg-blue-500 hover:text-colorFooter  border-brownbutton border-2 w-16 h-16 "
+                            href="#">
+                            <svg class="fill-current" viewBox="0 0 30 30">
+                                <path data-name="<Path>"
+                                    d="M22.109 10.591a5.883 5.883 0 0 1-1.675.459 2.932 2.932 0 0 0 1.282-1.614 5.857 5.857 0 0 1-1.853.706 2.918 2.918 0 0 0-5.046 1.994 2.987 2.987 0 0 0 .076.667A8.29 8.29 0 0 1 8.88 9.757a2.882 2.882 0 0 0-.395 1.466 2.916 2.916 0 0 0 1.3 2.428 2.913 2.913 0 0 1-1.321-.364v.036a2.919 2.919 0 0 0 2.34 2.862 2.957 2.957 0 0 1-1.317.05 2.921 2.921 0 0 0 2.723 2.025 5.858 5.858 0 0 1-3.623 1.248 6 6 0 0 1-.7-.04 8.3 8.3 0 0 0 12.772-6.989c0-.127 0-.252-.009-.378a5.928 5.928 0 0 0 1.456-1.511z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="hover:bg-blue-800 hover:text-colorFooter  border-brownbutton border-2 w-16 h-16 ml-5 "
+                            href="#">
+                            <svg class="fill-current" viewBox="0 0 30 30">
+                                <path
+                                    d="M18.691 7.992v2.256H17.35c-1.051 0-1.248.5-1.248 1.231v1.615h2.5l-.333 2.53H16.1v6.486h-2.613v-6.486h-2.179v-2.53h2.179v-1.863a3.049 3.049 0 0 1 3.256-3.341 16.847 16.847 0 0 1 1.949.1z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="hover:bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 hover:text-colorFooter  border-brownbutton border-2 w-16 h-16 ml-5 "
+                            href="#">
+                            <svg class="fill-current" viewBox="0 0 30 30">
+                                <path
+                                    d="M17.5 15a2.5 2.5 0 1 0-2.5 2.5 2.5 2.5 0 0 0 2.5-2.5zm1.347 0A3.847 3.847 0 1 1 15 11.153 3.843 3.843 0 0 1 18.847 15zm1.053-4a.9.9 0 1 1-.9-.9.9.9 0 0 1 .9.9zM15 8.848a16.577 16.577 0 0 0-4.424.3 2.555 2.555 0 0 0-1.426 1.428A16.577 16.577 0 0 0 8.848 15a16.577 16.577 0 0 0 .3 4.424 2.555 2.555 0 0 0 1.426 1.426 16.577 16.577 0 0 0 4.424.3 16.577 16.577 0 0 0 4.424-.3 2.555 2.555 0 0 0 1.426-1.426 16.577 16.577 0 0 0 .3-4.424 16.577 16.577 0 0 0-.3-4.424 2.555 2.555 0 0 0-1.425-1.426A16.577 16.577 0 0 0 15 8.848zM22.5 15c0 1.035.01 2.061-.049 3.1a4.46 4.46 0 0 1-1.211 3.14 4.457 4.457 0 0 1-3.14 1.211c-1.035.059-2.061.049-3.1.049s-2.061.01-3.1-.049a4.46 4.46 0 0 1-3.14-1.211 4.457 4.457 0 0 1-1.211-3.14C7.491 17.061 7.5 16.035 7.5 15s-.01-2.061.049-3.1A4.46 4.46 0 0 1 8.76 8.76a4.457 4.457 0 0 1 3.14-1.211c1.039-.058 2.065-.049 3.1-.049s2.061-.01 3.1.049a4.46 4.46 0 0 1 3.14 1.211 4.457 4.457 0 0 1 1.211 3.14c.058 1.039.049 2.065.049 3.1z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="hover:bg-blue-300 hover:text-colorFooter  border-brownbutton border-2 w-16 h-16  ml-5"
+                            href="#">
+                            <svg class="fill-current" viewBox="0 0 30 30">
+                                <path opacity=".5"
+                                    d="M17.328 19.413l-1.496-3.127H13.65l3.689 7.711 3.653-7.711h-2.187l-1.476 3.127">
+                                </path>
+                                <path d="M15.878 16.282h2.91L13.87 6 9 16.282h2.915l1.969-4.169z"></path>
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+
+
+{% include "partials/newsletter.njk" %}
+{% include "partials/footer.njk" %}
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+
+
+<div class=" w-screen">
+    <div class=" w-screen h-[800px] "
+        style="background: url(/images/acercaEntorno.jpeg) no-repeat center center;background-size:cover ;">
+
+        {% include "partials/top.njk" %}
+        <br>
+        <div class="m-auto bg-white bg-opacity-70 pt-16 pb-32 w-[80%] rounded-xl">
+            <h1 class="uppercase text-black text-2xl md:text-6xl font-letraHeader text-center"> entorno</h1>
+            <div class="flex flex-row items-center justify-center space-x-7 lg:space-x-14 pt-12 md:pt-32">
+                <h3 class="text-center text-green-800 uppercase text-lg lg:text-3xl" data-aos="fade-right"
+                    data-aos-duration="1000">disfruta</h3>
+                <h3 class="text-center text-white uppercase text-lg lg:text-3xl" data-aos="fade-right"
+                    data-aos-duration="2000">siente</h3>
+                <h3 class="text-center text-green-800 uppercase text-lg lg:text-3xl" data-aos="fade-right"
+                    data-aos-duration="3000">vive</h3>
+            </div>
+
+       
+
+        <p class="text-center text-blue-400 underline pt-10 text-base lg:text-lg" data-aos="fade-right"
+            data-aos-duration="4000">Disfruta innumerables horas
+            de playa, monumentos para visitar, comidas interminables o rutas con encanto</p>
+        </div>
+    </div>
+    <div class="bg-yellow-50">
+
+        <div class="h-4/5 md:w-full mx-auto rounded-lg text-center">
+
+            <h2 class="uppercase  underline pt-10 text-xl md:text-2xl text-blue-500 pb-10">Monumentos</h2>
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 space-x-5 gap-10">
+                {% for entornos in entorno %}
+                {% if entornos.tipo=="monumento" %}
+
+
+                <div class="md:flex flex-col items-center justify-center">
+                    <img src="{{entornos.imagen.url}}" alt="" class="h-[300px] w-[300px] object-contain">
+                    <h3 class="uppercase text-2xl lg:p-1">{{entornos.nombre}}</h3><br>
+                    <p class="lg:w-3/4">{{entornos.descripcion}}
+                    </p>
+                </div>
+
+
+
+
+                {% endif %}
+                {% endfor %}
+            </div>
+            <h3 class="text-center text-blue-600 text-lg md:text-3xl lg:text-5xl bold font-letraHeader underline py-5"
+                data-aos="fade-up" data-aos-duration="2500">Porque
+                en Andalucía, hay que vivirlo intensamente.</h3>
+            <iframe class="w-full h-[600px]" src="https://www.youtube.com/embed/5PQVgZsHERU" data-aos="fade-up"
+                data-aos-duration="2500" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+
+{% include "partials/newsletter.njk" %}
+{% include "partials/footer.njk" %}
+{% endblock %}
