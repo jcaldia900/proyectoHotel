@@ -15,45 +15,125 @@ permalink: "{{ item.tituloHabitacion | slug }}/"
     <h1 class="uppercase text-center pt-10 sm:text-lg md:text-3xl lg:text-5xl bold font-letraHeader">
         {{item.tituloHabitacion}}</h1> <br>
     <div
-        class="container m-auto grid grid-cols-1 content-center justify-center items-center bg-white bg-opacity-50 rounded-xl ">
+        class="container m-auto grid grid-cols-1 content-center justify-center items-center bg-white bg-opacity-50 rounded-xl pb-10">
 
 
         <div class="md:flex pt-8 sm:pb-3 lg:pt-20 lg:pb-6 md:pt-16 md:pb-4 text-center">
-            
-                <img src="{{item.imagenHabitacion.url}}" alt=""
-                    class="md:w-[300px] lg:w-[400px] xl:w-[500px] card-zoom-image object-cover">
-                <div class="text-center w-full">
-                    <h1 class="titulo py-5 px-5 sm:text-lg md:text-xl lg:text-3xl uppercase w-full">
-                        servicios </h1>
 
-                        <div class="mx-auto w-[300px]">
-                        {% for iconos in item.iconos %}
-                        <div class="flex w-full items-center">
-                            <div class="">
-                                <img src="{{iconos.icono.url}}" alt=""
-                                class="w-[15px] h-[15px] md:w-[20px] md:h-[20px] lg:w-[25px] lg:h-[20px] xl:w-[30px] xl:h-[30px] card-zoom-image">
-                            </div>
-                            <div class="">
-                                <p class="">{{iconos.nombreIcono}}</p>
-                            </div>
-                        </div>
+            <div class="w-[200px] h-[200px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px]">
+                   
+
+
+                <!-- Swiper -->
+                <div class="swiper-container gallery-top">
+                    <div class="swiper-wrapper">
+                        {% for galeria in item.galeriaHabitacion %}
+                        <div class="swiper-slide" style="background:url({{galeria.url}}) no-repeat center center;background-size:cover"></div>
                         {% endfor %}
-                        </div>
-                    <br>
 
-                    <h1 class="uppercase">{{item.subtitulo}}</h1>
-                    
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next swiper-button-white"></div>
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                </div>
+                <div class="swiper-container gallery-thumbs">
+                    <div class="swiper-wrapper">
+                        {% for galeria in item.galeriaHabitacion %}
+                        
+                        <div class="swiper-slide" style="background:url({{galeria.url}}) no-repeat center center;background-size:cover "></div>
+                      
+                        {% endfor %}
+                    </div>
+                </div>
+               
+            </div>
+            <div class="text-center w-full">
+                <h1 class="titulo py-5 px-5 text-lg md:text-xl lg:text-3xl uppercase w-full">
+                    servicios </h1>
+                <h1 class="uppercase">{{item.subtitulo}}</h1>
+                <div class="mx-auto w-[300px]">
+                    {% for iconos in item.iconos %}
+                    <div class="flex w-full items-center">
+                        <div class="">
+                            <img src="{{iconos.icono.url}}" alt=""
+                                class="w-[15px] h-[15px] md:w-[20px] md:h-[20px] lg:w-[25px] lg:h-[20px] xl:w-[30px] xl:h-[30px] card-zoom-image">
+                        </div>
+                        <div class="">
+                            <p class="">{{iconos.nombreIcono}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <br>
+                <a href="/reserva"
+                    class=" uppercase md:text-sm font-letraHeader bg-blue-300 p-5 rounded-xl text-white">reservar
+                    ahora</a>
+               
+            </div>
+        </div>
+    </div>
+    <div
+        class="md:hidden container mx-auto grid grid-cols-1 content-center sm:grid-cols-1 xl:grid-cols-2 justify-center items-center bg-white bg-opacity-70 rounded-xl my-auto">
+
+
+        {% for hab in habitacion %}
+        {% if item.tituloHabitacion != hab.tituloHabitacion %}
+
+        <div class=" pt-10 sm:pb-3 lg:pt-32 lg:pb-6 md:pt-20 md:pb-4 text-center">
+            <div class="md:flex card-zoom" data-aos="fade-up" data-aos-duration="1500">
+
+                <img src="{{hab.imagenHabitacion.url}}?w=200&h=200&fit=crop" alt="">
+
+                <div>
+                    <h1 class="py-5 px-5 sm:text-lg md:text-xl lg:text-3xl uppercase text-center">
+                        {{hab.tituloHabitacion}}</h1>
+                    <p class="text-xs text-gray-600 py-5 px-5">{{hab.descripcionHabitacion}}</p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <a href="/{{hab.tituloHabitacion | slug }}"
+                        class="py-2 px-2  md:py-5 md:px-5 bg-blue-600 rounded-xl uppercase "> leer más</a>
+                </div>
+            </div>
+
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+
+    <br>
+
+    <div class="grid container bg-white md:bg-opacity-50 rounded-xl m-auto lg:pt-20 lg:pb-6 md:pt-12 md:pb-4">
+        <h2 class="uppercase text-center font-letraHeader text-lg md:text-3xl">quizás le interese...</h2><br>
+        <div class=" grid grid-cols-1 xl:grid-cols-3 gap-4 lg:gap-8 m-auto ">
+
+            {% for hab in habitacion %}
+
+
+            <div class="flex flex-col h-400 md:h-[200px] lg:h-[200px] xl:h-[300px] sm:space-x-4 " data-aos="fade-left">
+                <div class="flex-shrink-0 card-zoom">
+                    <a href="/{{hab.tituloHabitacion | slug }}">
+                        <img src="{{hab.imagenHabitacion.url}}" alt=""
+                            class=" w-[300px] md:w-[200px] lg:w-[275px] xl:w-[350px] h-full object-cover card-zoom-image">
+                    </a>
                 </div>
 
-            
+                <div class="flex flex-col justify-between py-2  w-full h-auto " data-aos="fade-up-right">
+                    <div>
+                        <h1 class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center">
+                            {{hab.tituloHabitacion}}</h1>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            {% endfor %}
 
         </div>
 
-
-
-    </div>
-
-    <br>
+    </div><br>
 </div>
 
 

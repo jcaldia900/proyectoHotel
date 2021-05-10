@@ -14,19 +14,21 @@ module.exports = async function () {
       query: `
       query MyQuery {
         AllHabitaciones {
+          descripcionHabitacion
+          galeriaHabitacion {
+            url
+          }
           iconos {
             icono {
               url
             }
             nombreIcono
           }
-          id
           imagenHabitacion {
             url
           }
           subtitulo
           tituloHabitacion
-          descripcionHabitacion
         }
       }
   

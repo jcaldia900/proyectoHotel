@@ -4,7 +4,7 @@
 
 
 <div class=" w-screen">
-    <div class=" w-screen h-[800px] "
+    <div class=" w-screen h-[800px] bg-rgba(0 0 0 0.5)"
         style="background: url(/images/acercaEntorno.jpeg) no-repeat center center;background-size:cover ;">
 
         {% include "partials/top.njk" %}
@@ -32,13 +32,13 @@
         <div class="h-4/5 md:w-full mx-auto rounded-lg text-center">
 
             <h2 class="uppercase  underline pt-10 text-xl md:text-2xl text-blue-500 pb-10">Monumentos</h2>
-            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 space-x-5 gap-10">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5  gap-10">
                 {% for entornos in entorno %}
                 {% if entornos.tipo=="monumento" %}
 
 
-                <div class="md:flex flex-col items-center justify-center">
-                    <img src="{{entornos.imagen.url}}" alt="" class="h-[300px] w-[300px] object-contain">
+                <div class="md:flex flex-col items-center">
+                    <img src="{{entornos.imagen.url}}?w=600&h=600&fit=crop" alt="" class="w-full">
                     <h3 class="uppercase text-2xl lg:p-1">{{entornos.nombre}}</h3><br>
                     <p class="lg:w-3/4">{{entornos.descripcion}}
                     </p>
