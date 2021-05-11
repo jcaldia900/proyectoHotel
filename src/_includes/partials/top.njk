@@ -1,7 +1,7 @@
 <header class="  h-45 relative" >
 
     <div class="container ">
-        <div class="flex m-0 justify-between relative">
+        <div class="flex m-0 justify-between  sticky">
             <div alt="logoHotel" class="object-left w-1/5">
                 <a href="../">
                     <img src="/images/hoteldelsur.png"  data-aos="fade-right" data-aos-duration="4000">
@@ -9,7 +9,7 @@
             </div>
 
 
-            <div class="hidden md:flex md:items-center  md:space-x-5 lg:space-x-12 ">
+            <div class="hidden md:flex md:items-center  text-white  md:space-x-5 lg:space-x-12 ">
 
                 <!--anadirr las columnas para q aparezcan md 2 lg 3 ,,,,,-->
                 <a href="../" class=" uppercase md:text-xs lg:text-sm xl:text-lg font-letraHeader hover:text-blue-500"  data-aos="fade-right" data-aos-duration="4000">hotel</a>
@@ -27,20 +27,22 @@
             </div>
 
 
-            <div class="flex none sm:space-x-4 sm:float-left md:hidden">
-                <a id="menuMobile" onclick="navMobile.menuMobile()"
+            <div class="flex none sm:space-x-4 sm:float-left md:hidden text-white">
+                <a id="menuMobile"
                     class="hover:text-brownbutton flex mx-auto justify-center items-center">
                     
-                    <p class="uppercase" id="menu">
-                        menú
-                    </p>
-                    <svg class="w-6 h-6" id="svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    <div class="uppercase menu" id="menu">
+                        <p>menú</p>
+                        <p>salir</p>
+                    </div>
+                    
+                    <svg class="w-6 h-6" id="svgPrimero" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                    
-
+                    <svg class="w-6 h-6 hidden" id="svgSegundo" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                
                 </a>
             </div>
 
@@ -50,7 +52,7 @@
 
     </div>
     <div class="md:hidden absolute z-10 left-0  w-full">
-        <div id="menu-box-mobile" class=" invisible flex flex-col-1 -mt-12  border-t-2 border-gray-200 "
+        <div id="menu-box-mobile" class="hidden"
             style="top:165px; min-height: 100%;min-width: 100%;">
             <!--invisible aqui-->
             <div class="container  bg-white w-screen h-full" style=" min-height: 100%;min-width: 100%;">

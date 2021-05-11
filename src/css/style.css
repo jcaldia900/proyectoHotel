@@ -103,8 +103,48 @@ footer {
     float: right;
   }
 }
-.foot::before{
-  background-color:rgba(0,0,0,1);
-  content:""
+
+
+.velo {
+  background-color:rgba(0,0,0,.3);
+  content:"";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
+.veloRes {
+  background-color:rgba(0,0,0,.5);
+  content:"";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.menu:not(.active) p:nth-child(2){
+    display: none;
+}
+
+.menu.active p:nth-child(1) {
+  display: none;
+}
+
+.menu:not(.active) svg.path:nth-child(2){
+  display: none;
+}
+
+.menu.active svg.path:nth-child(1) {
+display: none;
+}
+img {
+  /* filter: brightness(10%) */
+}
+
+
+
 @tailwind utilities;
+
+

@@ -26,6 +26,7 @@ module.exports = async function () {
             url
           }
           descripcionRestaurante
+          tituloSecundario
         }
       }
       

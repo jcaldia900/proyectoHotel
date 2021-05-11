@@ -6,12 +6,20 @@
 <div class=" w-screen">
     <div class=" w-screen h-[1000px] relative"
         style="background: url(/images/chipiona.jpg) no-repeat center center;background-size:cover ;">
+        <div class="velo">
 
-        {% include "partials/top.njk" %}
-        <h2 class="text-white uppercase text-2xl lg:text-5xl text-center font-letraHeader mt-28 " data-aos="fade-up">el
-            paraíso, cerca de ti</h2>
-        <p class="text-indigo-100 text-2xl lg:text-5xl text-center font-letraHeader mt-28">Bienvenidos a vuestro hogar</p>
-        <div class="hidden lg:flex justify-center items-center bg-blue-300 space-x-5 mt-10 absolute inset-x-0 bottom-0 p-2" >
+        </div>
+        <div class="z-10 relative principal">
+            {% include "partials/top.njk" %}
+            <h2 class="text-white uppercase text-2xl lg:text-5xl text-center font-letraHeader mt-28 "
+                data-aos="fade-up">el
+                paraíso, cerca de ti</h2>
+            <p class="text-indigo-100 text-2xl lg:text-5xl text-center font-letraHeader mt-28">Bienvenidos a vuestro
+                hogar
+            </p>
+        </div>
+        <div
+            class="hidden lg:flex justify-center items-center bg-blue-300 space-x-5 mt-10 absolute inset-x-0 bottom-0 p-2">
             <h3>Entrada</h3><input id="date" type="date" value="now" class="lg:p-3 xl:p-5">
             <h3>Salida</h3><input id="date" type="date" value="now" class="lg:p-3 xl:p-5">
             <select name="cantidadHabitaciones" id="disponibilidadHabitaciones" class="lg:p-3 xl:p-5">
@@ -25,53 +33,40 @@
                 <option value="tresHabitaciones">Doble Uso Individual</option>
             </select>
             <a href="#">
-            <input type="button" value="consultar disponibilidad" class="lg:p-3 xl:p-5 bg-yellow-300 rounded-xl uppercase"></a>
+                <input type="button" value="consultar disponibilidad"
+                    class="lg:p-3 xl:p-5 bg-yellow-300 rounded-xl uppercase">
+            </a>
         </div>
         <div class="flex justify-center items-center inset-x-0 bottom-0  lg:hidden ">
-            <a href="/reserva" class=" uppercase md:text-sm font-letraHeader bg-blue-300 p-5 rounded-xl mt-10 text-white">reservar ahora</a>
+            <a href="/reserva"
+                class=" uppercase md:text-sm font-letraHeader bg-blue-300 p-5 rounded-xl mt-10 text-white">reservar
+                ahora</a>
         </div>
+
     </div>
     <div class="swiper-container h-[70vh]" style=" width: 100%;">
         <div class="swiper-wrapper">
+            {% for slider in slider %}
+            {% if slider.categoria=="principal" %}
             <div class="swiper-slide rounded-lg"
-                style="background: url(/images/spa.jpeg) no-repeat center center;background-size:cover">
+                style="background: url({{slider.imagen.url}}) no-repeat center center;background-size:cover">
+
                 <div>
-                    <h2 class="text-white uppercase sm:text-3xl md:text-5xl lg:text-6xl mb-10 "> spa thalasso
+                    <h2 class="text-white uppercase sm:text-3xl md:text-5xl lg:text-6xl mb-10 font-letraHeader">
+                        {{slider.titulo}}
                     </h2>
-                    <p class="text-white  mb-10 "> Relájese en nuestro spa, en el que contamos con múltiples
-                        tratamientos con los que difrutar.</p>
-                    <button class="uppercase px-10 py-5 bg-blue-300 text-white text-letraPrincipal">leer más
-                    </button>
-                </div>
-            </div>
-            <div class="swiper-slide rounded-lg"
-                style="background: url(/images/golf.jpeg)no-repeat center center;background-size:cover">
-                <div>
-                    <h2 class="text-white uppercase sm:text-3xl md:text-5xl lg:text-6xl mb-10 "> campos de golf</h2>
-                    <p class="text-white  mb-10 "> Contamos con el mayor campo de golf de españa,situado a pie de playa
-                    </p>
-                    <button class="uppercase px-10 py-5 bg-blue-300 text-white text-sans">leer más</button>
-                </div>
-            </div>
-            <div class="swiper-slide rounded-lg"
-                style="background: url(/images/masajes.jpeg)no-repeat center center;background-size:cover">
-                <div>
-                    <h2 class="text-white uppercase sm:text-3xl md:text-5xl lg:text-6xl mb-10 "> sesión de masaje</h2>
-                    <p class="text-white  mb-10 "> disfrute de nuestras terapias en plena playa, contamos con los
-                        mejores profesionales del mercado</p>
-                    <button class="uppercase px-10 py-5 bg-blue-300 text-white text-sans">leer más</button>
+                    <p class="text-white  mb-10 "> {{slider.descripcion}}</p>
+                    <a href="./servicios">
+                        <button class="uppercase px-10 py-5 bg-blue-300 text-white text-letraPrincipal">leer más
+                        </button>
+                    </a>
                 </div>
 
             </div>
-            <div class="swiper-slide rounded-lg"
-                style="background: url(/images/cena.jpeg) no-repeat center center;background-size:cover">
-                <div>
-                    <h2 class="text-white uppercase sm:text-3xl md:text-5xl lg:text-6xl mb-10 "> gastronomía </h2>
-                    <p class="text-white mb-10"> ¿Porqué no disfrutar de una cena agradable?</p>
-                    <button class="uppercase py-5 px-10 bg-blue-300 text-white text-sans">leer
-                        más</button>
-                </div>
-            </div>
+            {% endif %}
+            {% endfor %}
+
+
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -81,7 +76,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 sm: gap-10 md:gap-14 lg:gap-20 ">
                 <div class="m-auto md:h-full">
                     <div class="bg-white bg-opacity-50 md:h-full mx-auto rounded-lg">
-                        <h2 class="text-center text-2xl text-yellow-900 pt-5">Historia</h2>
+                        <h2 class="text-center text-2xl text-yellow-900 pt-5 uppercase">historia</h2>
                         <h3
                             class="text-center sm:my-5 md:my-10 lg:my-16 w-9/12 mx-auto sm:text-xs md:text-sm lg:text-base">
                             Hotel del sur nació como un proyecto de 2 amigos sevillanos, los cuales les gustaba el
@@ -117,8 +112,10 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:gap-20 lg:mx-28 lg:my-4 ">
                 <div class="overflow-visible ">
                     <div class="card-zoom flex items-center justify-center">
-                        <img class=" h-[150px] card-zoom-image  object-cover" src="/images/cocina.jpeg"
-                            alt="cocinaHotel">
+                        <a href="./restaurantes">
+                            <img class=" h-[150px] card-zoom-image  object-cover" src="/images/cocina.jpeg"
+                                alt="cocinaHotel">
+                        </a>
                     </div>
                     <br />
                     <h4 class=" text-center sm:text-sm md:text-xl lg:text-2xl uppercase">gastronomía</h4>
@@ -127,14 +124,16 @@
                         Nuestro hotel cuenta con el más prestigioso personal de toda la costa de la luz. Especialidado
                         en
                         distintos pescados de la zona, disfrutarás de sabrosos platos llenos de sabor y modernidad.</p>
-                    <a href="#"
+                    <a href="./restaurantes"
                         class="hover:text-text-blue-500 flex items-center justify-center  mt-3 text-blue-500 underline">Más
                         sobre el restaurante. →</a>
                 </div>
                 <div class="overflow-visible">
                     <div class="card-zoom flex items-center justify-center">
-
-                        <img class="h-[150px]  card-zoom-image  object-cover" src="/images/espacios.jpeg" alt="entorno">
+                        <a href="./entorno">
+                            <img class="h-[150px]  card-zoom-image  object-cover" src="/images/espacios.jpeg"
+                                alt="entorno">
+                        </a>
                     </div>
                     <br />
                     <h4 class="sm:text-sm md:text-xl lg:text-2xl text-center uppercase">entorno
@@ -144,12 +143,15 @@
                         siendo ésta una de las más demandadas por los visitantes año tras año.Nos encontramos además a
                         escasos 5 minutos andando del centro,y a unos 10 minutos en coche de la localidad vecina
                         Sanlúcar de
-                        Barrameda</p> <a href=""
+                        Barrameda</p>
+
+                    <a href="./entorno"
                         class="hover:text-text-blue-500 flex items-center justify-center mt-3 text-blue-500 underline">Más
                         sobre el entorno del hotel →</a>
                 </div>
                 <div class="overflow-visible ">
                     <div class="card-zoom flex items-center justify-center">
+
                         <img class=" h-[150px] card-zoom-image  object-cover" src="/images/visita.jpeg"
                             alt="quevisitar">
                     </div>

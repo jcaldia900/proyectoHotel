@@ -11,7 +11,7 @@
         <p class="text-center text-white">Disfrute de la calidad que usted merece.
         </p><br>
     </div>
-    <!---->
+   
     <div
         class="hidden md:grid md:container md:bg-white md:bg-opacity-70 md:rounded-xl md:m-auto lg:pt-20 lg:pb-6 md:pt-12 md:pb-4">
 
@@ -59,10 +59,10 @@
 
         <div class=" pt-10 sm:pb-3 lg:pt-32 lg:pb-6 md:pt-20 md:pb-4 text-center">
             <div class="md:flex card-zoom" data-aos="fade-up" data-aos-duration="1500">
-
+                <a href="/{{hab.tituloHabitacion | slug }}">
                 <img src="{{hab.imagenHabitacion.url}}" alt=""
-                    class="md:w-[200px] lg:w-[275px] xl:w-[350px] md:h-[200px] lg:h-[200px] xl:h-[300px] card-zoom-image flex-shrink-0 object-cover">
-
+                    class="md:w-[200px]  md:h-[200px] card-zoom-image flex-shrink-0 object-cover">
+                </a>
                 <div>
                     <h1 class="py-5 px-5 sm:text-lg md:text-xl lg:text-3xl uppercase text-center">
                         {{hab.tituloHabitacion}}</h1>

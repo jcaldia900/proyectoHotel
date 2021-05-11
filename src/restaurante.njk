@@ -10,40 +10,84 @@ permalink: "{{ item.tituloRestaurante | slug }}/"
 {% block content %}
 
 
-<div class=" w-screen" style="background: url(/images/fondo.jpeg) no-repeat center center;background-size:cover ;">
+<div class=" w-screen h-[600px] relative  "
+    style="background: url({{item.imagen.url}}) no-repeat center center;background-size:cover ;">
+    <div class="veloRes">
+
+    </div>
     {% include "partials/top.njk" %}
-    <h1 class="uppercase text-center pt-10 sm:text-lg md:text-3xl lg:text-5xl bold font-letraHeader">
-        {{item.tituloRestaurante}}</h1> <br>
-    <div
-        class="container m-auto grid grid-cols-1 content-center justify-center items-center bg-white bg-opacity-50 rounded-xl ">
+    <div class="container m-auto">
+        <h1
+            class="uppercase text-center pt-10 sm:text-lg md:text-3xl lg:text-5xl bold font-letraHeader text-blue-300 relative">
+            {{item.tituloRestaurante}}</h1> <br>
+        <h2
+            class="titulo py-5 px-5 sm:text-lg md:text-xl lg:text-3xl uppercase w-full text-white text-center font-letraHeader relative">
+            {{item.frase}}</h2>
+    </div>
+</div>
+<div
+    class="container m-auto grid grid-cols-1 content-center justify-center items-center rounded-xl relative">
 
 
-        <div class="pt-10 sm:pb-3 lg:pt-24 lg:pb-6 md:pt-20 md:pb-4 text-center">
-            <div class=" md:flex card-zoom">
-                <img src="{{item.imagen.url}}" alt=""
-                    class="md:w-[300px] lg:w-[400px] xl:w-[500px] card-zoom-image object-cover">
-                <div class="flex flex-col items-center justify-center">
-                    <h1 class="titulo py-5 px-5 sm:text-lg md:text-xl lg:text-3xl uppercase w-full">
-                        {{item.frase}}</h1>
-                
-                    <p class="parrafo text-xs text-gray-600 py-5 px-5 md:w-1/2 ">
-                        {{item.descripcionRestaurante}}</p>
-                    <p class="parrafo text-xs text-gray-600 py-5 px-5 md:w-1/2 "><p class="uppercase ">horario</p> {{item.horario}}</p>
-                    <p class="parrafo text-xs text-gray-600 py-5 px-5 md:w-1/2 ">
-                        {{item.tipoRestaurante}}</p>
-                    
+    <div class="pt-10 sm:pb-3 lg:pt-24 lg:pb-6 md:pt-20 md:pb-4 text-center">
+        <div class=" md:flex card-zoom ">
+            <div class="flex flex-col h-[200px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px]">
+            
+                <!-- Swiper -->
+                <div class="swiper-container gallery-top">
+                    <div class="swiper-wrapper">
+                        {% for galeria in item.imagenesSlider %}
+                       
+                        <div class="swiper-slide"
+                            style="background:url({{galeria.url}}) no-repeat center center;background-size:cover"></div>
+                        {% endfor %}
+
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next swiper-button-white"></div>
+                    <div class="swiper-button-prev swiper-button-white"></div>
                 </div>
+                <div class="swiper-container gallery-thumbs">
+                    <div class="swiper-wrapper">
+                        {% for galeria in item.imagenesSlider %}
+
+                        <div class="swiper-slide"
+                            style="background:url({{galeria.url}}) no-repeat center center;background-size:cover ">
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+
+
+           
+            <div class="flex flex-col items-center justify-center m-auto md:w-1/2">
                 
+                <h3 class="uppercase text-2xl lg:text-3xl py-8 font-letraHeader">{{item.tituloSecundario}}</h3>
+                <p class="parrafo text-xl text-gray-600 py-5 px-5 ">
+                    {{item.descripcionRestaurante}}</p>
+                <p class="parrafo text-xs text-gray-600 py-5 px-5 ">
+                <p class="uppercase ">horario</p> {{item.horario}}</p>
+                <p class="parrafo text-xs text-gray-600 py-5 px-5 ">
+                    {{item.tipoRestaurante}}</p>
+
+
+
+
             </div>
 
         </div>
 
-
-
     </div>
 
-    <br>
+
+
 </div>
+
+
+
 
 
 

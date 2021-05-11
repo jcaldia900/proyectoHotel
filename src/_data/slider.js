@@ -12,24 +12,15 @@ module.exports = async function () {
     },
     body: JSON.stringify({
       query: `
+      
       query MyQuery {
-        AllHabitaciones {
-          descripcionHabitacion
-          descripcionLarga
-          galeriaHabitacion {
+        AllSliders {
+          descripcion
+          categoria
+          imagen {
             url
           }
-          iconos {
-            icono {
-              url
-            }
-            nombreIcono
-          }
-          imagenHabitacion {
-            url
-          }
-          subtitulo
-          tituloHabitacion
+          titulo
         }
       }
       
@@ -40,7 +31,7 @@ module.exports = async function () {
     .then((res) => res.json())
     .then((json) => {
       
-      return json.data.AllHabitaciones;
+      return json.data.AllSliders;
     })
     .catch((error) => {
       console.log(error);
@@ -48,3 +39,4 @@ module.exports = async function () {
 
   return response;
 };
+
