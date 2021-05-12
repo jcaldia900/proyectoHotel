@@ -111,25 +111,97 @@
         <br>
     </div>
     <br><br>
-    <div class="container m-auto rounded-xl "
+     <div class="container m-auto rounded-xl"
         data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
-        <h2 class="text-center uppercase text-blue-500 underline pt-10">servicios de pago</h2>
-        <div class="grid grid-cols-2">
-            {% for serPago in servicio %}
-            {% if serPago.gratuito==false %}
-            <div class="flex justify-center items-center pt-10 sm:pb-3 lg:pt-24 lg:pb-6 md:pt-20 md:pb-4 text-center">
-                <div class=" flex row justify-center items-center card-zoom w-3/4">
-                    <img src="{{serPago.iconoServicio.url}}" alt=""
-                        class="w-[20px] lg:w-[30px] xl:w-[50px] h-[20px] lg:h-[30px] xl:h-[50px] card-zoom-image object-cover">
 
-                    <p class="titulo py-5 px-5 text-xs md:text-base lg:text-lg  uppercase w-full">
-                        {{serPago.nombreServicio}}</p>
+        <h2 class="text-center p-5 text-blue-500 underline uppercase pt-6">servicios gratuitos</h2>
+        <div class="flex flex-col md:flex-row">
+            <div class="grid grid-cols-2 lg:w-2/4">
+                {% for ser in servicio %}
+                {% if ser.gratuito==true %}
+
+                <div class="flex justify-start items-start pt-5 sm:pb-2 lg:pt-10 lg:pb-4 md:pt-8 md:pb-2 text-center">
+                    <div class=" flex flex-row card-zoom  justify-center items-center lg:w-2/4 ">
+                        <img src="{{ser.iconoServicio.url}}" alt=""
+                            class="w-[20px] lg:w-[30px] xl:w-[40px] h-[20px] lg:h-[30px] xl:h-[40px] card-zoom-image object-cover">
+
+                        <p class="titulo md:py-5 md:px-5 text-xs md:text-base lg:text-lg uppercase w-full">
+                            {{ser.nombreServicio}}</p>
+
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+
+
+            </div>
+            <div class="flex flex-col justify-center items-center h-[200px] md:hidden ">
+
+                <!-- Swiper -->
+                <div class="swiper-container gallery-top  w-full h-full">
+                    <div class="swiper-wrapper">
+                        {% for slider in slider %}
+                        {% if slider.categoria=="servicio gratuito" %}
+                        <div class="swiper-slide"
+                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover">
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next swiper-button-white"></div>
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                </div>
+                <div class="swiper-container gallery-thumbs">
+                    <div class="swiper-wrapper">
+                        {% for slider in slider %}
+                        {% if slider.categoria=="servicio gratuito" %}
+                        <div class="swiper-slide"
+                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover ">
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
 
             </div>
-            {% endif %}
-            {% endfor %}
+            <div class="hidden md:flex md:flex-col justify-center items-center  md:w-1/2 ">
+
+                <!-- Swiper -->
+                <div class="swiper-container gallery-top w-full h-full">
+                    <div class="swiper-wrapper">
+                        {% for slider in slider %}
+                        {% if slider.categoria=="servicio pago" %}
+                        <div class="swiper-slide"
+                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover">
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next swiper-button-white"></div>
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                </div>
+                <div class="swiper-container gallery-thumbs">
+                    <div class="swiper-wrapper">
+                        {% for slider in slider %}
+                        {% if slider.categoria=="servicio pago" %}
+                        <div class="swiper-slide"
+                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover ">
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
         </div>
+        <br>
     </div>
 </div>
 {% include "partials/footer.njk" %}

@@ -86,3 +86,22 @@ document.getElementById('menuMobile').addEventListener('click', () => {
   document.getElementById('menu').classList.toggle('active')
 
 })
+
+
+var grid = document.querySelector('.msnry-grid');
+var msnry = new Masonry( grid, {
+  itemSelector: '.msnry-grid-item',
+  columnWidth: 160,
+  stagger: 30,
+});
+
+grid.addEventListener( 'click', function( event ) {
+  // don't proceed if item was not clicked on
+  if ( !matchesSelector( event.target, '.grid-item' ) ) {
+    return;
+  }
+  // change size of item via class
+  event.target.classList.toggle('grid-item--gigante');
+  // trigger layout
+  msnry.layout();
+});
