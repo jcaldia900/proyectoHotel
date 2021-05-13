@@ -82,7 +82,38 @@ permalink: "{{ item.tituloRestaurante | slug }}/"
 
     </div>
 
+    <div class="grid container bg-yellow-50 lg:pt-20 lg:pb-6 md:pt-12 md:pb-4 h-full">
+        <h2 class="uppercase text-center font-letraHeader text-lg md:text-3xl text-blue-400 ">quizás le interese...</h2>
+        <br>
+        <div class=" grid grid-cols-1  md:grid-cols-3 gap-4 lg:gap-8 m-auto ">
 
+            {% for res in restaurante %}
+            {% if item.tituloRestaurante != res.tituloRestaurante %}
+
+            <div class="flex flex-col items-center" data-aos="fade-down">
+                <div class=" card-zoom">
+                    <a href="/{{res.tituloRestaurante | slug }}">
+                        <img src="{{res.imagen.url}}" alt=""
+                            class=" w-[200px] h-[200px] md:w-[250px] md:w-[250px] lg:w-[275px] xl:w-[350px] h-full object-cover card-zoom-image">
+                    </a>
+                </div>
+
+                <div class="flex flex-col justify-center items-center py-2  w-full h-auto " data-aos="fade-down">
+
+                    <h1 class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader">
+                        {{res.tituloRestaurante}}</h1>
+
+
+
+                </div>
+            </div>
+
+            {% endif %}
+            {% endfor %}
+
+        </div>
+
+    </div><br>
 
 </div>
 

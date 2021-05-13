@@ -17,11 +17,11 @@
         </h3>
     </div>
 </div>
-<div class="relative">
-    <div class="container m-auto rounded-xl"
+<div class="container m-auto">
+    <div 
         data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
 
-        <h2 class="text-center p-5 text-blue-500 underline uppercase pt-6">servicios gratuitos</h2>
+        <h2 class="text-center  text-blue-500 underline uppercase p-10">servicios gratuitos</h2>
         <div class="flex flex-col md:flex-row">
             <div class="grid grid-cols-2 lg:w-2/4">
                 {% for ser in servicio %}
@@ -45,18 +45,19 @@
 
 
             </div>
-            <div class="flex flex-col justify-center items-center h-[200px] md:hidden ">
+
+
+            <div class="flex flex-col h-[200px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px]">
 
                 <!-- Swiper -->
-                <div class="swiper-container gallery-top  w-full h-full">
+                <div class="swiper-container gallery-top">
                     <div class="swiper-wrapper">
                         {% for slider in slider %}
                         {% if slider.categoria=="servicio gratuito" %}
                         <div class="swiper-slide"
-                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover">
-                        </div>
-                        {% endif %}
-                        {% endfor %}
+                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover"></div>
+                            {% endif %}
+                            {% endfor %}
 
                     </div>
                     <!-- Add Arrows -->
@@ -67,40 +68,11 @@
                     <div class="swiper-wrapper">
                         {% for slider in slider %}
                         {% if slider.categoria=="servicio gratuito" %}
+
                         <div class="swiper-slide"
                             style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover ">
                         </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
 
-            </div>
-            <div class="hidden md:flex md:flex-col justify-center items-center  md:w-1/2 ">
-
-                <!-- Swiper -->
-                <div class="swiper-container gallery-top w-full h-full">
-                    <div class="swiper-wrapper">
-                        {% for slider in slider %}
-                        {% if slider.categoria=="servicio gratuito" %}
-                        <div class="swiper-slide"
-                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover">
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-
-                    </div>
-                    <!-- Add Arrows -->
-                    <div class="swiper-button-next swiper-button-white"></div>
-                    <div class="swiper-button-prev swiper-button-white"></div>
-                </div>
-                <div class="swiper-container gallery-thumbs">
-                    <div class="swiper-wrapper">
-                        {% for slider in slider %}
-                        {% if slider.categoria=="servicio gratuito" %}
-                        <div class="swiper-slide"
-                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover ">
-                        </div>
                         {% endif %}
                         {% endfor %}
                     </div>
@@ -110,15 +82,16 @@
         </div>
         <br>
     </div>
-    <br><br>
-     <div class="container m-auto rounded-xl"
+
+    
+    <div 
         data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
 
-        <h2 class="text-center p-5 text-blue-500 underline uppercase pt-6">servicios gratuitos</h2>
+        <h2 class="text-center text-blue-500 underline uppercase p-10">servicios pago</h2>
         <div class="flex flex-col md:flex-row">
             <div class="grid grid-cols-2 lg:w-2/4">
                 {% for ser in servicio %}
-                {% if ser.gratuito==true %}
+                {% if ser.gratuito==false %}
 
                 <div class="flex justify-start items-start pt-5 sm:pb-2 lg:pt-10 lg:pb-4 md:pt-8 md:pb-2 text-center">
                     <div class=" flex flex-row card-zoom  justify-center items-center lg:w-2/4 ">
@@ -138,68 +111,39 @@
 
 
             </div>
-            <div class="flex flex-col justify-center items-center h-[200px] md:hidden ">
+            <div class="flex flex-col h-[200px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px]">
 
                 <!-- Swiper -->
-                <div class="swiper-container gallery-top  w-full h-full">
+                <div class="swiper-container gallery-top">
                     <div class="swiper-wrapper">
                         {% for slider in slider %}
-                        {% if slider.categoria=="servicio gratuito" %}
+                        {% if slider.categoria=="servicio pago" %}
                         <div class="swiper-slide"
-                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover">
-                        </div>
-                        {% endif %}
-                        {% endfor %}
+                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover"></div>
+                            {% endif %}
+                            {% endfor %}
 
                     </div>
                     <!-- Add Arrows -->
                     <div class="swiper-button-next swiper-button-white"></div>
                     <div class="swiper-button-prev swiper-button-white"></div>
                 </div>
-                <div class="swiper-container gallery-thumbs">
+                <div class="swiper-container gallery-thumbsDos">
                     <div class="swiper-wrapper">
                         {% for slider in slider %}
-                        {% if slider.categoria=="servicio gratuito" %}
+                        {% if slider.categoria=="servicio pago" %}
+
                         <div class="swiper-slide"
                             style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover ">
                         </div>
+
                         {% endif %}
                         {% endfor %}
                     </div>
                 </div>
 
             </div>
-            <div class="hidden md:flex md:flex-col justify-center items-center  md:w-1/2 ">
-
-                <!-- Swiper -->
-                <div class="swiper-container gallery-top w-full h-full">
-                    <div class="swiper-wrapper">
-                        {% for slider in slider %}
-                        {% if slider.categoria=="servicio pago" %}
-                        <div class="swiper-slide"
-                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover">
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-
-                    </div>
-                    <!-- Add Arrows -->
-                    <div class="swiper-button-next swiper-button-white"></div>
-                    <div class="swiper-button-prev swiper-button-white"></div>
-                </div>
-                <div class="swiper-container gallery-thumbs">
-                    <div class="swiper-wrapper">
-                        {% for slider in slider %}
-                        {% if slider.categoria=="servicio pago" %}
-                        <div class="swiper-slide"
-                            style="background:url({{slider.imagen.url}}) no-repeat center center;background-size:cover ">
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-
-            </div>
+           
         </div>
         <br>
     </div>

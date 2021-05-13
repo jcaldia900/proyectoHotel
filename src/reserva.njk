@@ -1,0 +1,101 @@
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+<div class=" w-screen h-[80px] md:h-[150px] lg:h-[200px] relative bg-blue-400">
+    <header class="  h-45 relative">
+
+        <div class="container ">
+            <div class="flex items-center  m-0 space-x-3 sticky ">
+                <div alt="logoHotel" class="object-left w-1/5 ">
+                    <a href="../">
+                        <img src="/images/hoteldelsur.png" data-aos="fade-right" data-aos-duration="4000">
+                    </a>
+
+                </div>
+                <div class="w-full flex items-center justify-center ">
+                    <h2 class="uppercase font-letraHeader text-lg md:text-3xl lg:text-5xl text-white "
+                        data-aos="fade-left" data-aos-duration="4000">
+                        reservas
+                    </h2>
+                </div>
+                <a href="../">
+                    <svg class="w-8 h-8 bottom-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                        </path>
+
+                    </svg>
+                    <p class="text-white">Menú</p>
+                </a>
+            </div>
+        </div>
+    </header>
+</div>
+<div class="container mx-auto bg-yellow-50 p-0 md:px-6">
+    <div class="flex flex-col  py-5">
+
+        <div class="flex flex-row justify-between">
+
+            <p class="bg-yellow-300 rounded-full w-6 lg:w-7 text-center">1</p>
+
+
+
+            <p class="bg-blue-400 rounded-full w-6 lg:w-7 text-center">2</p>
+
+            <p class="bg-blue-400 rounded-full w-6 lg:w-7 text-center">3</p>
+        </div><br>
+        <div class="flex flex-row justify-between">
+            <p class="uppercase  text-xs md:text-base lg:text-lg">reserva</p>
+            <p class="uppercase  text-xs md:text-base lg:text-lg">datos personales</p>
+            <p class="uppercase  text-xs md:text-base lg:text-lg">confirmación</p>
+        </div>
+    </div>
+    <div class="flex justify-center items-center bg-blue-400 space-x-5 mt-10 p-2">
+        <div class="grid grid-cols-1 space-y-4 xl:space-y-0 xl:flex justify-center items-center bg-blue-400 xl:space-x-2 m-auto">
+        <h3 class="uppercase text-white">Entrada</h3><input id="date" type="date" value="now" class="lg:p-3 xl:p-5">
+        <h3 class="uppercase text-white">Salida</h3><input id="date" type="date" value="now" class="lg:p-3 xl:p-5">
+        <select name="cantidadHabitaciones" id="disponibilidadHabitaciones" class="lg:p-3 xl:p-5">
+            <option value="unaHabitacion">1 habitación</option>
+            <option value="dosHabitaciones">2 habitaciones</option>
+            <option value="tresHabitaciones">3 habitaciones</option>
+        </select>
+        <select name="tipoHabitacion" id="tipodeHabitaciones" class="lg:p-3 xl:p-5">
+            <option value="unaHabitacion">Doble</option>
+            <option value="dosHabitaciones">Triple</option>
+            <option value="tresHabitaciones">Doble Uso Individual</option>
+        </select>
+        <a href="#">
+            <input type="button" value="consultar disponibilidad"
+                class="sm:py-5 sm:px-4 md:p-5 bg-yellow-300 rounded-xl uppercase">
+        </a>
+    </div>
+    </div>
+    <h3 class="text-center text-xl uppercase py-5">Por favor,seleccione el tipo de habitación</h3>
+    {% for hab in habitacion %}
+    <div class="flex flex-row py-4">
+        <div class=" card-zoom w-1/2">
+            <a href="/{{hab.tituloHabitacion | slug }}">
+                <img src="{{hab.imagenHabitacion.url}}" alt=""
+                    class=" w-[200px] h-[150px] md:w-[250px] md:w-[200px] lg:w-[275px] xl:w-[350px] h-full object-cover ">
+            </a>
+        </div>
+
+        <div class="flex flex-col justify-center items-center py-2  w-1/2 h-auto ">
+
+            <h1 class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader">
+                {{hab.tituloHabitacion}}</h1>
+                <div class="flex flex-col justify-between items-start">
+                 <input type="radio" name="gender"><p class="uppercase"> alojamiento y desayuno</p>
+                <input type="radio" name="gender"><p class="uppercase"> media pensión</p>
+                <input type="radio" name="gender"><p class="uppercase"> pensión completa </p>
+                </div>
+        </div>
+
+    </div>
+    {% endfor %}
+    <button class="text-white p-5 bg-blue-400 uppercase m-6 rounded-xl">siguiente</button>
+    <br>
+</div>
+{% include "partials/footer.njk" %}
+{% endblock %}
