@@ -1,5 +1,8 @@
 import Swiper from "swiper/bundle";
 import Masonry from "masonry-layout";
+import imagesloaded from "imagesloaded";
+
+
 var swiper = new Swiper(".swiper-container", {
   pagination: {
     el: ".swiper-pagination",
@@ -64,25 +67,10 @@ if (document.getElementById("menuMobile") != null) {
     document.getElementById("menu").classList.toggle("active");
   });
 }
-if (document.querySelector(".msnry-grid")) {
-  var grid = document.querySelector(".msnry-grid");
-  var msnry = new Masonry(grid, {
-    itemSelector: ".msnry-grid-item",
-    columnWidth: 160,
-    stagger: 30,
-  });
 
-  grid.addEventListener("click", function (event) {
-    // don't proceed if item was not clicked on
-    if (!matchesSelector(event.target, ".grid-item")) {
-      return;
-    }
-    // change size of item via class
-    event.target.classList.toggle("grid-item--gigante");
-    // trigger layout
-    msnry.layout();
-  });
-}
+
+  
+
 if (document.getElementById("entrada")) {
   let fechaEntrada = document.getElementById("entrada").value;
   let fechaSalida = document.getElementById("salida").value;
@@ -100,3 +88,58 @@ if (document.getElementById("entrada")) {
 function disponibilidad(){
   alert("holaaa")
 }
+
+
+
+/*
+
+var grid = document.querySelector('.gridPanel');
+var msnry = new Masonry( grid, {
+  itemSelector: '.gridPanel-item',
+  columnWidth: '.gridPanel-sizer',
+  percentPosition: true
+});
+
+window.onload = function() {
+  msnry.layout();
+  
+
+};*/
+
+/*
+if(document.querySelector('.gridPanel')){
+const imgloaded = require('imagesloaded')
+const elem = document.querySelector('.gridPanel')
+var imgLoad = imgloaded( elem )
+    function onAlways() {
+        const msnry = new Masonry( elem, {
+            // options
+            columnWidth: '.gridPanel-sizer',
+            // do not use .grid-sizer in layout
+            itemSelector: '.gridPanel-item',
+            percentPosition: true,
+            gutter: 10
+        })
+    console.log('all images are loaded')
+}
+if (elem) {
+    // bind with .on()
+    imgLoad.on( 'always', onAlways )
+    // unbind with .off()
+    // imgLoad.off( 'always', onAlways )
+}
+}
+*/
+// init Masonry
+var grid = document.querySelector('.gridPanel');
+
+var msnry = new Masonry( grid, {
+  itemSelector: '.gridPanel-item',
+  columnWidth: '.gridPanel-sizer',
+  percentPosition: true
+});
+
+imagesLoaded( grid ).on( 'progress', function() {
+  // layout Masonry after each image loads
+  msnry.layout();
+});

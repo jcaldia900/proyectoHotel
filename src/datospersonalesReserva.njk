@@ -8,13 +8,13 @@
         <div class="flex flex-col w-11/12 justify-between m-auto py-5">
 
             <div class="flex flex-row justify-between ">
-    
+
                 <p class="bg-blue-400 rounded-full w-6 lg:w-7 text-center">1</p>
-    
-    
-    
+
+
+
                 <p class="bg-yellow-300 rounded-full w-6 lg:w-7 text-center">2</p>
-    
+
                 <p class="bg-blue-400 rounded-full w-6 lg:w-7 text-center">3</p>
             </div><br>
             <div class="flex flex-row justify-between">
@@ -24,10 +24,10 @@
             </div>
         </div>
         <h2 class="text-center uppercase font-letraHeader text-5xl p-5">Datos Reserva</h2>
-        
+
         <div class="hidden md:flex flex-row  px-16 py-10 bg-gray-200 ">
             <div class="text-gray-500 text-lg underline uppercase w-1/2">Datos personales</div>
-            <div class="text-gray-500 text-lg underline uppercase text-right  w-1/2 bg-red-400">Datos Bancarios </div>
+            <div class="text-gray-500 text-lg underline uppercase text-right  w-1/2">Datos Bancarios </div>
         </div>
         <div class="flex flex-col md:flex-row bg-gray-200">
             <div class="text-gray-500 text-lg underline uppercase text-center p-4 md:hidden">Datos personales</div>
@@ -54,14 +54,15 @@
             </div>
             <div class="text-gray-500 text-lg underline uppercase text-center p-4 md:hidden">Datos Bancarios</div>
             <div class=" grid grid-cols-1 gap-6 place-items-center place-content-center h-[300px] md:w-1/2 bg-gray-200">
-                
+
                 <input class="py-3 px-4 md:px-20 lg:px-36 xl:px-52 border-2" type="text" name="numeroTarjeta"
                     placeholder="Número de Tarjeta">
 
                 <div class="flex flex-col xl:flex-row space-y-4 xl:space-x-8 xl:space-y-0">
-                    <input class="py-3 px-4 md:px-20 lg:px-36 xl:px-20 border-2" type="text" name="nombreTitular" 
+                    <input class="py-3 px-4 md:px-20 lg:px-36 xl:px-20 border-2" type="text" name="nombreTitular"
                         placeholder="Nombre titular">
-                    <input class="py-3 px-4 md:px-7 border-2" type="text" name="caducidad" placeholder="Caducidad dd/mm/yyyy" maxlength="10">
+                    <input class="py-3 px-4 md:px-7 border-2" type="text" name="caducidad"
+                        placeholder="Caducidad dd/mm/yyyy" maxlength="10">
                 </div>
 
             </div>
@@ -69,17 +70,22 @@
         </div>
         <br>
         <div class="bg-gray-200 h-[300px]">
-        <div class="flex items-center justify-between m-auto w-4/5 py-10">
-            
-            <h3 class="uppercase text-gray-500">Fecha Entrada</h3>
-            <h3 class="uppercase text-gray-500">Fecha Salida</h3>
-            <h3 class="uppercase text-gray-500">Precio Final </h3>
-            <h3 class="uppercase text-gray-500">Habitación</h3>
-            
+            <div class="flex items-center justify-between m-auto w-4/5 py-10">
+
+                <h3 class="uppercase text-gray-500">Fecha Entrada</h3>
+                <h3 class="uppercase text-gray-500">Fecha Salida</h3>
+                <h3 class="uppercase text-gray-500">Precio Final </h3>
+                <h3 class="uppercase text-gray-500">Habitación</h3>
+
+            </div>
         </div>
-    </div>
         <div class="flex items-center justify-center ">
-            <button class="text-white p-5 bg-blue-400 uppercase m-6 rounded-xl">siguiente</button>
+            <a href="/reserva">
+                <button class="text-white py-5 px-8 bg-blue-400 uppercase m-6 rounded-xl">atrás</button>
+            </a>
+            <a href="/confirmacionReserva">
+                <button class="text-white p-5 bg-blue-400 uppercase m-6 rounded-xl">siguiente</button>
+            </a>
         </div>
     </div>
 
