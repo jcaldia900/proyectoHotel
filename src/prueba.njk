@@ -8,18 +8,19 @@
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <script src="/main.js"></script>
+  
   <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="/main.js" defer></script>
 
 <body>
 
   
 
-  <div class="container m-auto  w-[80%] bg-red-500 h-screen">
+  <div class="container m-auto  w-[80%] h-screen">
 
-    <div class="gridPanel grid grid-cols-2 bg-red-100 ">
-      <!--<div class="gridPanel-sizer"></div>-->
+    <div class="gridPanel">
+      <div class="gridPanel-sizer"></div>
       {% for galeria in galeria %}
         <div class="gridPanel-item ">
           

@@ -86,51 +86,11 @@ if (document.getElementById("entrada")) {
   console.log(diffDays + " days");
 }
 function disponibilidad(){
-  alert("holaaa")
+  var x = document.getElementById("entrada").value;
+  document.getElementById("demo").innerHTML = x;
 }
 
-
-
-/*
-
-var grid = document.querySelector('.gridPanel');
-var msnry = new Masonry( grid, {
-  itemSelector: '.gridPanel-item',
-  columnWidth: '.gridPanel-sizer',
-  percentPosition: true
-});
-
-window.onload = function() {
-  msnry.layout();
-  
-
-};*/
-
-/*
 if(document.querySelector('.gridPanel')){
-const imgloaded = require('imagesloaded')
-const elem = document.querySelector('.gridPanel')
-var imgLoad = imgloaded( elem )
-    function onAlways() {
-        const msnry = new Masonry( elem, {
-            // options
-            columnWidth: '.gridPanel-sizer',
-            // do not use .grid-sizer in layout
-            itemSelector: '.gridPanel-item',
-            percentPosition: true,
-            gutter: 10
-        })
-    console.log('all images are loaded')
-}
-if (elem) {
-    // bind with .on()
-    imgLoad.on( 'always', onAlways )
-    // unbind with .off()
-    // imgLoad.off( 'always', onAlways )
-}
-}
-*/
-// init Masonry
 var grid = document.querySelector('.gridPanel');
 
 var msnry = new Masonry( grid, {
@@ -139,7 +99,7 @@ var msnry = new Masonry( grid, {
   percentPosition: true
 });
 
-imagesLoaded( grid ).on( 'progress', function() {
+imagesloaded( grid ).on( 'progress', function() {
   // layout Masonry after each image loads
   msnry.layout();
-});
+});}

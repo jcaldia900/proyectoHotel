@@ -4,7 +4,7 @@
 
 
 <div class=" w-screen">
-    <div class=" w-screen h-[1000px] relative"
+    <div class=" w-screen h-[700px] md:h-[800px] lg:h-[1000px] relative"
         style="background: url(/images/chipiona.jpg) no-repeat center center;background-size:cover ;">
         <div class="velo">
 
@@ -19,7 +19,7 @@
             </p>
         </div>
         <div
-            class="hidden lg:flex justify-center items-center bg-blue-400 space-x-5 mt-10 absolute inset-x-0 bottom-0 p-2">
+            class="hidden xl:flex justify-center items-center bg-blue-400 space-x-5 mt-10 absolute inset-x-0 bottom-0 p-2">
             <h3 class="uppercase text-white">Entrada</h3><input id="date" type="date" value="now" class="lg:p-3 xl:p-5">
             <h3 class="uppercase text-white">Salida</h3><input id="date" type="date" value="now" class="lg:p-3 xl:p-5">
             <select name="cantidadHabitaciones" id="disponibilidadHabitaciones" class="lg:p-3 xl:p-5">
@@ -37,7 +37,7 @@
                     class="lg:p-3 xl:p-5 bg-yellow-300 rounded-xl uppercase">
             </a>
         </div>
-        <div class="flex justify-center items-center inset-x-0 bottom-0  lg:hidden relative">
+        <div class="flex justify-center items-center inset-x-0 bottom-0  xl:hidden relative">
             <a href="/reserva"
                 class=" uppercase md:text-sm font-letraHeader bg-blue-400 p-5 rounded-xl mt-10 text-white">reservar
                 ahora</a>
@@ -51,13 +51,15 @@
             <div class="swiper-slide rounded-lg"
                 style="background: url({{slider.imagen.url}}) no-repeat center center;background-size:cover">
 
-                <div class="slide rounded-xl p-20">
-                    <h2 class="text-blue-400 uppercase sm:text-3xl md:text-5xl lg:text-6xl mb-10 font-letraHeader opacity-100">
+                <div class="slide rounded-xl h-[80%] w-[80%] flex items-center justify-center flex-col">
+                    <h2
+                        class="text-blue-400 uppercase sm:text-3xl md:text-5xl lg:text-6xl mb-10 font-letraHeader opacity-100">
                         {{slider.titulo}}
                     </h2>
-                    <p class="text-blue-400  mb-10 "> {{slider.descripcion}}</p>
+                    <p class="text-blue-400  mb-10 opacity-100"> {{slider.descripcion}}</p>
                     <a href="./servicios">
-                        <button class="uppercase px-10 py-5 bg-blue-300 text-white text-letraPrincipal">leer más
+                        <button class="uppercase px-10 py-5 bg-blue-300 text-white text-letraPrincipal opacity-100">leer
+                            más
                         </button>
                     </a>
                 </div>
@@ -73,7 +75,7 @@
     </div>
     <div class=" md:pb-2" style="background: url(/images/fondo.jpeg) no-repeat center center; background-size: cover;">
         <div class="lg:container m-auto sm:w-[80%] lg:w-[80%] py-10">
-            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 sm: gap-10 md:gap-14 lg:gap-20 ">
+            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 sm:gap-10 md:gap-14 lg:gap-20 ">
                 <div class="m-auto md:h-full">
                     <div class="bg-white bg-opacity-50 md:h-full mx-auto rounded-lg">
                         <h2 class="text-center text-2xl text-yellow-900 pt-5 uppercase">historia</h2>
@@ -110,7 +112,7 @@
 
         <section class="bg-white bg-opacity-50 container mx-auto md:w-4/5 pt-10 rounded-lg">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:gap-20 lg:mx-28 lg:my-4 ">
-                <div class="overflow-visible ">
+                <div class="overflow-visible mb-20 md:mb-2">
                     <div class="card-zoom flex items-center justify-center">
                         <a href="./restaurantes">
                             <img class=" h-[150px] card-zoom-image  object-cover" src="/images/cocina.jpeg"
@@ -128,7 +130,7 @@
                         class="hover:text-text-blue-500 flex items-center justify-center  mt-3 text-blue-500 underline">Más
                         sobre el restaurante. →</a>
                 </div>
-                <div class="overflow-visible">
+                <div class="overflow-visible mb-20 md:mb-2">
                     <div class="card-zoom flex items-center justify-center">
                         <a href="./entorno">
                             <img class="h-[150px]  card-zoom-image  object-cover" src="/images/espacios.jpeg"
@@ -149,11 +151,11 @@
                         class="hover:text-text-blue-500 flex items-center justify-center mt-3 text-blue-500 underline">Más
                         sobre el entorno del hotel →</a>
                 </div>
-                <div class="overflow-visible ">
+                <div class="overflow-visible mb-20 md:mb-2">
                     <div class="card-zoom flex items-center justify-center">
-
-                        <img class=" h-[150px] card-zoom-image  object-cover" src="/images/visita.jpeg"
-                            alt="quevisitar">
+                        <a href="./entorno/#monumentos">
+                            <img class=" h-[150px] card-zoom-image  object-cover" src="/images/visita.jpeg"
+                                alt="quevisitar"></a>
                     </div>
                     <br />
                     <h4 class="sm:text-sm md:text-xl lg:text-2xl text-center uppercase">¿Qué hacer?
@@ -174,7 +176,42 @@
         </section>
 
     </div>
+    <div class="swiper-container h-[70vh]" style=" width: 100%;">
+        {% set incremento = 0 %}
 
+
+        <div class="swiper-wrapper padre">
+
+            {% for slider in slider %}
+            {% if slider.categoria=="secundaria" %}
+            {% set incremento = (incremento + 1) %}
+
+            <div class="hijos swiper-slide rounded-lg flex items-center justify-start p-6"
+                style="background: url({{slider.imagen.url}}) no-repeat center center;background-size:cover">
+
+                <div class=" slide rounded-xl h-[80%] w-[50%] flex items-center justify-center flex-col">
+                    <h2
+                        class="text-blue-400 uppercase sm:text-xl md:text-3xl lg:text-4xl mb-10 font-letraHeader opacity-100">
+                        {{slider.titulo}}
+                    </h2>
+                    <p class="text-black  mb-10 opacity-100 w-3/4"> {{slider.descripcion}}</p>
+                    <a href="./servicios">
+                        <button class="uppercase px-10 py-5 bg-blue-300 text-white text-letraPrincipal opacity-100">leer
+                            más
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+            {% endif %}
+            {% endfor %}
+
+
+        </div>
+
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
 
 </div>
 

@@ -30,6 +30,10 @@ module.exports = async function () {
           }
           subtitulo
           tituloHabitacion
+          precioAlmuerzo
+          precioCena
+          precioHabitacion
+          desayuno
         }
       }
       
