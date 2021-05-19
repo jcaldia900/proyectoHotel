@@ -30,40 +30,19 @@
                 <h3 class="uppercase text-white">Salida</h3><input id="salida" type="date" value="now" class="lg:p-3 "
                     value="2021-05-06">
 
-                <h3 class="uppercase text-white">Nº Personas</h3> <input type="number" id="quantity" name="quantity"
+                <h3 class="uppercase text-white">Nº Personas</h3> <input type="number" id="cantidad" name="quantity"
                     min="1" max="10" placeholder="1">
 
                 <a href="#">
                     <input type="button" value="consultar disponibilidad"
-                        class="sm:py-5 sm:px-4 md:p-4 bg-yellow-300 rounded-xl uppercase" onclick="disponibilidad()">
+                        class="sm:py-5 sm:px-4 md:p-4 bg-yellow-300 rounded-xl uppercase" id="botonDisponibilidad" onclick="disponibilidad()">
                 </a>
                 <p id="demo">a</p>
             </div>
             <script>
-                function disponibilidad() {
-                    
-
-                    if (document.getElementById("entrada")) {
-
-                        var x = document.getElementById("entrada").value;
-                       
-
-                        let fechaEntrada = document.getElementById("entrada").value;
-                        let fechaSalida = document.getElementById("salida").value;
-                        fechaEntrada = fechaEntrada.split("/").reverse().join("-");
-                        fechaSalida = fechaSalida.split("/").reverse().join("-");
-                        let entrada = new Date(fechaEntrada).getTime();
-
-                        let salida = new Date(fechaSalida).getTime();
-                        let diffTime = Math.abs(salida - entrada);
-                        let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                        document.getElementById("demo").innerHTML = diffDays;
-                       
-                    }
-
-
-                }
-
+              
+                
+                
             </script>
         </div>
         <h3 class="text-center sm:text-xl md:text-2xl uppercase py-10 underline font-bold text-blue-400 ">Por
@@ -75,40 +54,41 @@
                     class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader">
                     {{hab.tituloHabitacion}}</h2>
                 <a href="/{{hab.tituloHabitacion | slug }}">
-                    <img src="{{hab.imagenHabitacion.url}}" alt=""
+                    <img src="{{hab.imagenHabitacion.url}}" alt="/{{hab.tituloHabitacion}}"
                         class=" w-[200px] h-[150px] md:w-[250px] md:w-[200px] lg:w-[275px] xl:w-[700px] xl:h-[400px] h-full object-cover ">
                 </a>
             </div>
 
             <div class="flex flex-col justify-center items-center py-2  md:w-1/2 h-auto ">
                 <h2
+                    class="py-5 px-5 text-lg md:text-xl lg:text-2xl xl:text-3xl uppercase text-center  font-letraHeader">
+                    precio habitación</h2>
+
+                    
+                    <p class="uppercase text-xs md:text-base lg:text-lg" id="habitacion" name="habitacion">{{hab.precioHabitacion}}€</p>
+                <h2
                     class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader">
-                    régimen alimenticio</h2>
+                    régimen alimentición</h2>
 
                 <div class="flex flex-col justify-between md:items-start" id="regimenes">
-                    <p class="uppercase text-xs md:text-base lg:text-lg"><br><input type="radio" name="regimen" >
-                        alojamiento y desayuno {{hab.desayuno}}€</p>
-                    <p class="uppercase text-xs md:text-base lg:text-lg"><br><input type="radio" name="regimen"> media
-                        pensión {{hab.precioAlmuerzo}}€</p>
-                    <p class="uppercase text-xs md:text-base lg:text-lg"><br><input type="radio" name="regimen"> pensión
-                        completa {{hab.precioCena}}€</p>
-                    <p id="result">a</p>
-                    <button onclick="seleccion()">ASD</button>
+                    <p class="uppercase text-xs md:text-base lg:text-lg"><br><input type="radio" name="regimen" onclick="seleccion(this.value)" value="{{hab.desayuno}}">
+                        alojamiento y desayuno:{{hab.desayuno}}€</p>
+                    <p class="uppercase text-xs md:text-base lg:text-lg"><br><input type="radio" name="regimen" onclick="seleccion(this.value)" value="{{hab.precioAlmuerzo}}"> media
+                        pensión: {{hab.precioAlmuerzo}}€</p>
+                    <p class="uppercase text-xs md:text-base lg:text-lg"><br><input type="radio" name="regimen" onclick="seleccion(this.value)" value="{{hab.precioCena}}"> pensión
+                        completa: {{hab.precioCena}}€</p>
+                    
+                   
                 </div>
             </div>
+            
             <script>
+
                 function seleccion() {
                     
 
-                    var x=document.getElementById("regimen").value;
-                        document.getElementById("result").value = x;
-                        
-                       
-                        
-                       console.log("hoajajja")
-                    
-
-
+                    //document.getElementById("result").innerHTML = document.getElementById("habitacion");
+                   
                 }
             </script>
         </div>

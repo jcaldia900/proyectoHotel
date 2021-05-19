@@ -26,11 +26,27 @@
         <h2 class="text-center uppercase font-letraHeader text-5xl p-5">Datos Reserva</h2>
 
         <div class="hidden md:flex flex-row  px-16 py-10 bg-gray-200 relative">
-            <div class="text-gray-500 text-lg underline uppercase w-1/2 ">Datos personales <svg class="w-6 h-6 absolute inset-y-10 left-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg></div>
-            <div class="text-gray-500 text-lg underline uppercase text-right  w-1/2">Datos Bancarios <svg class="w-6 h-6 absolute inset-y-10 right-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg></div>
+            <div class="text-gray-500 text-lg underline uppercase w-1/2 ">Datos personales <svg
+                    class="w-6 h-6 absolute inset-y-10 left-2" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clip-rule="evenodd"></path>
+                </svg></div>
+            <div class="text-gray-500 text-lg underline uppercase text-right  w-1/2">Datos Bancarios <svg
+                    class="w-6 h-6 absolute inset-y-10 right-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
+                    </path>
+                </svg></div>
         </div>
         <div class="flex flex-col md:flex-row bg-gray-200 relative">
-            <div class="text-gray-500 text-lg underline uppercase text-center p-4 md:hidden">Datos personales <svg class="w-6 h-6 absolute inset-y-5 left-8 md:left-28" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg></div>
+            <div class="text-gray-500 text-lg underline uppercase text-center p-4 md:hidden">Datos personales <svg
+                    class="w-6 h-6 absolute inset-y-5 left-8 md:left-28" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clip-rule="evenodd"></path>
+                </svg></div>
 
             <div
                 class="grid grid-cols-1 space-y-5 lg:space-y-0  lg:grid-cols-2 lg:gap-4 xl:gap-6 place-items-center place-content-center h-[300px] md:w-1/2 w-full  mr-8">
@@ -52,7 +68,13 @@
                         name="telefonoCliente" autocomplete="tel" placeholder="Teléfono">
                 </div>
             </div>
-            <div class="text-gray-500 text-lg underline uppercase text-center p-4 md:hidden">Datos Bancarios <svg class="w-6 h-6 absolute inset-y-96 -mt-2 right-8 md:right-28" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg></div>
+            <div class="text-gray-500 text-lg underline uppercase text-center p-4 md:hidden">Datos Bancarios <svg
+                    class="w-6 h-6 absolute inset-y-96 -mt-2 right-8 md:right-28" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
+                    </path>
+                </svg></div>
             <div class=" grid grid-cols-1 gap-6 place-items-center place-content-center h-[300px] md:w-1/2 bg-gray-200">
 
                 <input class="py-3 px-4 md:px-20 lg:px-36 xl:px-52 border-2" type="text" name="numeroTarjeta"
@@ -72,13 +94,79 @@
         <div class="bg-gray-200 h-[300px]">
             <div class="flex items-center justify-between m-auto w-4/5 py-10">
 
-                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg">Fecha Entrada</h3>
-                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg">Fecha Salida</h3>
-                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg">Precio Final </h3>
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg" >Fecha Entrada <p id="fechaEntrada"></p></h3>
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg" >Fecha Salida <p id="fechaSalida"></p></h3>
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg">Precio Final <p id="precioFinal"></p></h3>
                 <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg">Habitación</h3>
 
             </div>
         </div>
+
+        <script>
+            function getParameterByName(name) {
+                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+            var prodIdE = getParameterByName('fechaE');
+            var fechaE = document.getElementById("fechaEntrada")
+            fechaE.innerHTML = prodIdE;
+
+
+            function getParameterBySalida(name) {
+                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+            var prodIdS = getParameterBySalida('fechaS');
+            var fechaS = document.getElementById("fechaSalida")
+            fechaS.innerHTML = prodIdS;
+
+
+
+
+            function getParameterByHab(name) {
+                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+            var prodHab = getParameterByHab('hab');
+            
+
+            function getParameterByNP(name) {
+                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+            var prodNP = getParameterByNP('n_P');
+            
+            function getParameterByR(name) {
+                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+            var prodR = getParameterByR('reg');
+            
+
+
+            var precio = document.getElementById("PrecioFinal")
+            var precioFinal=(prodHab)*(prodNP)*(prodR)
+            precio.innerHTML = precioFinal ;
+
+
+
+
+
+
+
+
+        </script>
+
         <div class="flex items-center justify-center ">
             <a href="/reserva">
                 <button class="text-white py-5 px-8 bg-blue-400 uppercase m-6 rounded-xl">atrás</button>
