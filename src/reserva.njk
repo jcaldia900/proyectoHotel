@@ -33,11 +33,11 @@
                 <h3 class="uppercase text-white">Nº Personas</h3> <input type="number" id="cantidad" name="quantity"
                     min="1" max="10" placeholder="1">
 
-                <a href="#">
+                <!--<a href="#">
                     <input type="button" value="consultar disponibilidad"
-                        class="sm:py-5 sm:px-4 md:p-4 bg-yellow-300 rounded-xl uppercase" id="botonDisponibilidad" onclick="disponibilidad()">
-                </a>
-                <p id="demo">a</p>
+                        class="sm:py-5 sm:px-4 md:p-4 bg-yellow-300 rounded-xl uppercase" >
+                </a>-->
+                
             </div>
             <script>
               
@@ -51,7 +51,7 @@
         <div class="flex flex-col items-center justify-center md:flex-row py-4">
             <div class=" card-zoom md:w-1/2">
                 <h2
-                    class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader">
+                    class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader " id="tipoHabitacion">
                     {{hab.tituloHabitacion}}</h2>
                 <a href="/{{hab.tituloHabitacion | slug }}">
                     <img src="{{hab.imagenHabitacion.url}}" alt="/{{hab.tituloHabitacion}}"
@@ -65,7 +65,7 @@
                     precio habitación</h2>
 
                     
-                    <p class="uppercase text-xs md:text-base lg:text-lg" id="habitacion" name="habitacion">{{hab.precioHabitacion}}€</p>
+                    <p class="uppercase text-xs md:text-base lg:text-lg habitacion" id="habitacion" name="habitacion">{{hab.precioHabitacion}}</p> <p>€</p>
                 <h2
                     class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader">
                     régimen alimentición</h2>
@@ -80,6 +80,12 @@
                     
                    
                 </div>
+                <div class="flex items-center justify-center">
+                    <input type="button" value="reservar"
+                            class="p-5 bg-blue-400 m-6 rounded-xl uppercase text-white botonDisponibilidad" id="botonDisponibilidad"
+                            onclick="disponibilidad()" data-precio="{{hab.precioHabitacion}}"
+                            data-nombre="{{hab.tituloHabitacion}}">
+                    </div>
             </div>
             
             <script>
@@ -93,10 +99,7 @@
             </script>
         </div>
         {% endfor %}
-        <div class="flex items-center justify-center">
-            <a href="/datospersonalesReserva">
-                <button class="text-white p-5 bg-blue-400 uppercase m-6 rounded-xl">siguiente</button> </a>
-        </div>
+       
         <br>
     </div>
     {% include "partials/footer.njk" %}

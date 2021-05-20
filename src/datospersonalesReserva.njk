@@ -53,19 +53,19 @@
 
                 <div>
                     <input class="py-3 px-4 lg:px-6 xl:px-10 border-2" type="text" maxlength="40" name="nombreCliente"
-                        placeholder="Nombre">
+                        placeholder="Nombre" id="nombrePersona">
                 </div>
                 <div>
                     <input class="py-3  px-4 lg:px-6 xl:px-10 border-2" type="text" maxlength="40"
-                        name="apellidosCliente" placeholder="Apellidos">
+                        name="apellidosCliente" placeholder="Apellidos" id="apellidosPersona">
                 </div>
                 <div>
                     <input class="py-3  px-4 lg:px-6 xl:px-10 border-2" type="text" maxlength="120" name="emailCliente"
-                        autocomplete="email" placeholder="Email">
+                        autocomplete="email" placeholder="Email" id="emailPersona">
                 </div>
                 <div>
                     <input class="py-3  px-4 lg:px-6 xl:px-10 border-2" type="text" maxlength="16"
-                        name="telefonoCliente" autocomplete="tel" placeholder="Teléfono">
+                        name="telefonoCliente" autocomplete="tel" placeholder="Teléfono" id="telefonoPersona">
                 </div>
             </div>
             <div class="text-gray-500 text-lg underline uppercase text-center p-4 md:hidden">Datos Bancarios <svg
@@ -78,13 +78,13 @@
             <div class=" grid grid-cols-1 gap-6 place-items-center place-content-center h-[300px] md:w-1/2 bg-gray-200">
 
                 <input class="py-3 px-4 md:px-20 lg:px-36 xl:px-52 border-2" type="text" name="numeroTarjeta"
-                    placeholder="Número de Tarjeta">
+                    placeholder="Número de Tarjeta" id="numeroTarjeta">
 
                 <div class="flex flex-col xl:flex-row space-y-4 xl:space-x-8 xl:space-y-0">
                     <input class="py-3 px-4 md:px-20 lg:px-36 xl:px-20 border-2" type="text" name="nombreTitular"
-                        placeholder="Nombre titular">
+                        placeholder="Nombre titular" id="titularTarjeta">
                     <input class="py-3 px-4 md:px-7 border-2" type="text" name="caducidad"
-                        placeholder="Caducidad dd/mm/yyyy" maxlength="10">
+                        placeholder="Caducidad dd/mm/yyyy" maxlength="10" id="caducidadTarjeta">
                 </div>
 
             </div>
@@ -92,26 +92,53 @@
         </div>
         <br>
         <div class="bg-gray-200 h-[300px]">
-            <div class="flex items-center justify-between m-auto w-4/5 py-10">
+            <h3 class="uppercase text-center p-5 text-base md:text-lg lg:text-xl text-gray-500 underline">resumen</h3>
+            <div class="flex items-center justify-between m-auto w-4/5 py-6">
 
-                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg" >Fecha Entrada <p id="fechaEntrada"></p></h3>
-                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg" >Fecha Salida <p id="fechaSalida"></p></h3>
-                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg">Precio Final <p id="precioFinal"></p></h3>
-                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg">Habitación</h3>
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Fecha Entrada <p
+                        id="fechaEntrada" class="py-2  text-xs  lg:text-base text-black"></p>
+                </h3>
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Fecha Salida <p
+                        id="fechaSalida" class="py-2  text-xs lg:text-base text-black"></p>
+                </h3>
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Precio Final <p
+                        id="precioFinal" class="py-2 text-xs lg:text-base text-black"></p>
+                </h3>
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Habitación <p id="textoHab"
+                        class="py-2 text-xs  lg:text-base text-black"></p>
+                </h3>
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 "> <img src="" id="textoHab">
+                </h3>
 
             </div>
         </div>
 
         <script>
-            function getParameterByName(name) {
+
+
+            let fechaEntrada = getParameterByEntrada('fechaE');;
+            let fechaSalida = getParameterBySalida('fechaS');;
+
+            fechaEntrada = fechaEntrada.split("/").reverse().join("-");
+            fechaSalida = fechaSalida.split("/").reverse().join("-");
+            let entrada = new Date(fechaEntrada).getTime();
+
+            let salida = new Date(fechaSalida).getTime();
+
+            let diffTime = Math.abs(salida - entrada);
+            let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+
+            function getParameterByEntrada(name) {
                 name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
                 var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
                     results = regex.exec(location.search);
                 return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
             }
-            var prodIdE = getParameterByName('fechaE');
+            var prodIdE = getParameterByEntrada('fechaE');
             var fechaE = document.getElementById("fechaEntrada")
             fechaE.innerHTML = prodIdE;
+
 
 
             function getParameterBySalida(name) {
@@ -127,6 +154,8 @@
 
 
 
+
+
             function getParameterByHab(name) {
                 name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
                 var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -134,7 +163,7 @@
                 return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
             }
             var prodHab = getParameterByHab('hab');
-            
+
 
             function getParameterByNP(name) {
                 name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -143,7 +172,7 @@
                 return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
             }
             var prodNP = getParameterByNP('n_P');
-            
+
             function getParameterByR(name) {
                 name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
                 var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -151,29 +180,76 @@
                 return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
             }
             var prodR = getParameterByR('reg');
-            
-
-
-            var precio = document.getElementById("PrecioFinal")
-            var precioFinal=(prodHab)*(prodNP)*(prodR)
-            precio.innerHTML = precioFinal ;
 
 
 
+            var precio = document.getElementById("precioFinal")
+            var precioFinal = parseInt(prodHab) * diffDays + parseInt(prodNP * prodR) * diffDays + "€"
+            precio.innerHTML = precioFinal;
+
+
+            function getParameterByTipo(name) {
+                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+            var tipoUrl = getParameterByTipo('tipoH');
+            var tipo = document.getElementById("textoHab")
+            tipo.innerHTML = tipoUrl;
 
 
 
+           
+                function datosPSiguiente() {
+                    if (document.getElementById("nombrePersona").value !== "" && document.getElementById("apellidosPersona").value !== "" && document.getElementById("emailPersona").value !== "" && document.getElementById("telefonoPersona").value !== "" && document.getElementById("numeroTarjeta").value !== "" && document.getElementById("numeroTarjeta").value !== "" && document.getElementById("caducidadTarjeta").value !== "") {
+                    let params = {
+                        nom: document.getElementById("nombrePersona").value,
+                        apel: document.getElementById("apellidosPersona").value,
+                        mail: document.getElementById("emailPersona").value,
+                        tfno: document.getElementById("telefonoPersona").value,
+                        tar: document.getElementById("numeroTarjeta").value,
+                        tit: document.getElementById("numeroTarjeta").value,
+                        cad: document.getElementById("caducidadTarjeta").value,
 
 
+
+                        // dif: document.getElementById("demo").value
+                    };
+
+                    let query = Object.keys(params)
+                        .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k]))
+                        .join("&");
+
+                    window.location.href = "http://localhost:8080/confirmacionReserva?" + query;
+
+                    fetch(window.location.href)
+                        .then((data) => data.text())
+                        .then((text) => {
+                            console.log("request succeeded with JSON response", text);
+                        })
+                        .then((params) => {
+                            console.log("Debe introducir los datos", params);
+                        })
+                        .catch(function (error) {
+                            console.log("request failed", error);
+                        });
+
+                }else{
+                alert("Los campos están vacíos, por favor revise")
+            }
+            }
         </script>
 
         <div class="flex items-center justify-center ">
+
             <a href="/reserva">
-                <button class="text-white py-5 px-8 bg-blue-400 uppercase m-6 rounded-xl">atrás</button>
+                <input type="button" value="atrás" class="px-7 py-5 bg-blue-400 m-6 rounded-xl uppercase text-white ">
             </a>
-            <a href="/confirmacionReserva">
-                <button class="text-white p-5 bg-blue-400 uppercase m-6 rounded-xl">siguiente</button>
-            </a>
+            <input type="button" value="finalizar" class="p-5 bg-blue-400 m-6 rounded-xl uppercase text-white "
+                onclick="datosPSiguiente()" data-precio="{{hab.precioHabitacion}}"
+                data-nombre="{{hab.tituloHabitacion}}">
+
         </div>
     </div>
 

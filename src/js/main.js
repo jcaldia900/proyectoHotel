@@ -1,6 +1,7 @@
 import Swiper from "swiper/bundle";
 import Masonry from "masonry-layout";
 import imagesloaded from "imagesloaded";
+import { jsPDF } from "jspdf";
 
 var swiper = new Swiper(".swiper-container", {
   pagination: {
@@ -67,37 +68,40 @@ if (document.getElementById("menuMobile") != null) {
   });
 }
 
+/*if(document.getElementById("entrada").value!=="" && document.getElementById("salida").value!=="" ){
+  let fechaEntrada = document.getElementById("entrada").value;
+  let fechaSalida = document.getElementById("salida").value;
+  let cantidad = document.getElementById("cantidad").value;
+  fechaEntrada = fechaEntrada.split("/").reverse().join("-");
+  fechaSalida = fechaSalida.split("/").reverse().join("-");
+  let entrada = new Date(fechaEntrada).getTime();
+ 
+  let salida = new Date(fechaSalida).getTime();
+  let diffTime = Math.abs(salida - entrada);
+  let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  document.getElementById("demo").innerHTML = diffDays;
+}*/
 if (document.getElementById("botonDisponibilidad")) {
-  var boton = document.getElementById("botonDisponibilidad");
-  var resultado = boton.addEventListener("click", disponibilidad);
+  var boton = document.querySelectorAll(".botonDisponibilidad");
+  boton.forEach((element) => {
+  var resultado = element.addEventListener("click", disponibilidad);
 
   function disponibilidad() {
-    if (document.getElementById("entrada")) {
-      var x = document.getElementById("entrada").value;
-
-      let fechaEntrada = document.getElementById("entrada").value;
-      let fechaSalida = document.getElementById("salida").value;
-      let cantidad = document.getElementById("cantidad").value;
-      fechaEntrada = fechaEntrada.split("/").reverse().join("-");
-      fechaSalida = fechaSalida.split("/").reverse().join("-");
-      let entrada = new Date(fechaEntrada).getTime();
-
-      let salida = new Date(fechaSalida).getTime();
-      let diffTime = Math.abs(salida - entrada);
-      let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      document.getElementById("demo").innerHTML = diffDays;
-    }
 
     
     if (document.querySelector("input[name = regimen]:checked") && document.getElementById("entrada").value!=="" && document.getElementById("salida").value!=="" && document.getElementById("cantidad").value!=="") {
+      if(document.getElementById("salida").value > document.getElementById("entrada").value){
       var regimen = document.querySelector("input[name = regimen]:checked").value;
     
     let params = {
-      hab:document.getElementById("habitacion").textContent,
+      hab:element.dataset.precio,
       fechaE: document.getElementById("entrada").value,
       fechaS: document.getElementById("salida").value,
       n_P: document.getElementById("cantidad").value,
       reg: regimen,
+      tipoH:element.dataset.nombre,
+       
+     // dif: document.getElementById("demo").value
     };
 
     let query = Object.keys(params)
@@ -118,23 +122,36 @@ if (document.getElementById("botonDisponibilidad")) {
         console.log("request failed", error);
       });
 
+    }else{alert("Introdujo la Fecha de Salida menor que de Entrada, por favor introduzcalo de nuevo")}
     } else {
       alert("Introduzca todos los campos por favor");
     }
 
-
-
-
-
-
   }
+});
+
+
+
+
+
+
+
+var botonImprimir = document.getElementById("imprimir");
+var resImpresion = element.addEventListener("click", imprimir);
+function imprimir(){
+  const doc = new jsPDF();
+
+  doc.text("Hello world!", 10, 10);
+  doc.save("a4.pdf");
+
+}
 } 
 
-if (document.getElementById("fechaSalida")) {
-  document.getElementById("fechaSalida").innerHTML =
-    document.getElementById("salida").value;
-  console.log(document.getElementById("fechaSalida"));
-}
+/*if (document.getElementById("fechaSalida")) {
+document.getElementById("fechaSalida").innerHTML =
+document.getElementById("salida").value;
+console.log(document.getElementById("fechaSalida"));
+}*/
 
 /*if (document.getElementById("entrada")) {
   let fechaEntrada = document.getElementById("entrada").value;
@@ -169,3 +186,4 @@ if (document.querySelector(".gridPanel")) {
     msnry.layout();
   });
 }
+

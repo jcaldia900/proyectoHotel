@@ -34,6 +34,7 @@ module.exports = async function () {
           precioCena
           precioHabitacion
           desayuno
+          id
         }
       }
       
