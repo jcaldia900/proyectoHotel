@@ -53,8 +53,8 @@
                 <h2
                     class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader " id="tipoHabitacion">
                     {{hab.tituloHabitacion}}</h2>
-                <a href="/{{hab.tituloHabitacion | slug }}">
-                    <img src="{{hab.imagenHabitacion.url}}" alt="/{{hab.tituloHabitacion}}"
+                <a href="/{{hab.tituloHabitacion | slug }}" >
+                    <img src="{{hab.imagenHabitacion.url}}" alt="/{{hab.tituloHabitacion}}" 
                         class=" w-[200px] h-[150px] md:w-[250px] md:w-[200px] lg:w-[275px] xl:w-[700px] xl:h-[400px] h-full object-cover ">
                 </a>
             </div>
@@ -84,7 +84,7 @@
                     <input type="button" value="reservar"
                             class="p-5 bg-blue-400 m-6 rounded-xl uppercase text-white botonDisponibilidad" id="botonDisponibilidad"
                             onclick="disponibilidad()" data-precio="{{hab.precioHabitacion}}"
-                            data-nombre="{{hab.tituloHabitacion}}">
+                            data-nombre="{{hab.tituloHabitacion}}" data-img="{{hab.imagenHabitacion.url}}">
                     </div>
             </div>
             
