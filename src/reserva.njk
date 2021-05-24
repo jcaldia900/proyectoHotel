@@ -25,9 +25,9 @@
         <div class="flex justify-center items-center bg-blue-400 space-x-5 mt-10 p-2">
             <div
                 class="grid grid-cols-1 space-y-4 xl:space-y-0 xl:flex justify-center items-center bg-blue-400 xl:space-x-2 m-auto">
-                <h3 class="uppercase text-white">Entrada</h3><input id="entrada" type="date" value="now" class="lg:p-3 "
+                <h3 class="uppercase text-white">Entrada</h3><input id="entrada" type="date"  class="lg:p-3 "
                     value="2021-05-05">
-                <h3 class="uppercase text-white">Salida</h3><input id="salida" type="date" value="now" class="lg:p-3 "
+                <h3 class="uppercase text-white">Salida</h3><input id="salida" type="date" class="lg:p-3 "
                     value="2021-05-06">
 
                 <h3 class="uppercase text-white">Nº Personas</h3> <input type="number" id="cantidad" name="quantity"
@@ -88,19 +88,31 @@
                     </div>
             </div>
             
-            <script>
-
-                function seleccion() {
-                    
-
-                    //document.getElementById("result").innerHTML = document.getElementById("habitacion");
-                   
-                }
-            </script>
+          
         </div>
         {% endfor %}
        
         <br>
+        <script>
+                
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            const entradaRes = urlParams.get('fechaERes')
+            console.log(entradaRes)
+            const salidaRes = urlParams.get('fechaSRes')
+            var entrada= document.getElementById("entrada").value;
+            var salida= document.getElementById("salida").value;
+
+            entrada=entradaRes;
+            salida=salidaRes;
+            function seleccion() {
+                
+
+                //document.getElementById("result").innerHTML = document.getElementById("habitacion");
+               
+            }
+        </script>
     </div>
     {% include "partials/footer.njk" %}
     {% endblock %}

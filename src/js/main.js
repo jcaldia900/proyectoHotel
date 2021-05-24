@@ -284,7 +284,7 @@ if (document.getElementById("botonFinalizar")) {
             .join("&");
 
           window.location.href =
-            "http://localhost:8080/confirmacionReserva?" + query;
+            "/confirmacionReserva?" + query;
 
           fetch(window.location.href)
             .then((data) => data.text())
