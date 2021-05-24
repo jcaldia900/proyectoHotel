@@ -9,6 +9,7 @@
     "masonry-layout": "^4.2.2",
     "node-fetch": "^2.6.1",
     "npm-run-all": "^4.1.5",
+    "require": "^2.4.20",
     "swiper": "^6.5.8"
   },
   "devDependencies": {

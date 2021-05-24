@@ -120,7 +120,7 @@ if (document.getElementById("botonDisponibilidad")) {
             .join("&");
 
           window.location.href =
-            "http://localhost:8080/datospersonalesReserva?" + query;
+            "/datospersonalesReserva?" + query;
 
           fetch(window.location.href)
             .then((data) => data.text())
