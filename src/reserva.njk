@@ -25,93 +25,94 @@
         <div class="flex justify-center items-center bg-blue-400 space-x-5 mt-10 p-2">
             <div
                 class="grid grid-cols-1 space-y-4 xl:space-y-0 xl:flex justify-center items-center bg-blue-400 xl:space-x-2 m-auto">
-                <h3 class="uppercase text-white">Entrada</h3><input id="entrada" type="date"  class="lg:p-3 "
+                <h3 class="uppercase text-white">Entrada</h3><input id="entrada" type="date" class="lg:p-3 "
                     value="2021-05-05">
                 <h3 class="uppercase text-white">Salida</h3><input id="salida" type="date" class="lg:p-3 "
                     value="2021-05-06">
 
                 <h3 class="uppercase text-white">Nº Personas</h3> <input type="number" id="cantidad" name="quantity"
                     min="1" max="10" placeholder="1">
+                <input type="button" value="consultar disponibilidad"
+                    class="lg:p-3 xl:p-5 bg-yellow-300 rounded-xl uppercase botonConsulta" id="botonConsulta"
+                    onclick="consultar()">
 
                 <!--<a href="#">
                     <input type="button" value="consultar disponibilidad"
                         class="sm:py-5 sm:px-4 md:p-4 bg-yellow-300 rounded-xl uppercase" >
                 </a>-->
-                
+
             </div>
             <script>
-              
-                
-                
+
+
+
             </script>
         </div>
         <h3 class="text-center sm:text-xl md:text-2xl uppercase py-10 underline font-bold text-blue-400 ">Por
-            favor,seleccione el tipo de habitación</h3>
-        {% for hab in habitacion %}
+            favor,seleccione el régimen alimenticio de la habitación deseada</h3>
+            
+            {% for hab in habitacion %}
+           
         <div class="flex flex-col items-center justify-center md:flex-row py-4">
             <div class=" card-zoom md:w-1/2">
-                <h2
-                    class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader " id="tipoHabitacion">
+                <h2 class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader "
+                    id="tipoHabitacion">
                     {{hab.tituloHabitacion}}</h2>
-                <a href="/{{hab.tituloHabitacion | slug }}" >
-                    <img src="{{hab.imagenHabitacion.url}}" alt="/{{hab.tituloHabitacion}}" 
+                <a href="/{{hab.tituloHabitacion | slug }}">
+                    <img src="{{hab.imagenHabitacion.url}}" alt="/{{hab.tituloHabitacion}}"
                         class=" w-[200px] h-[150px] md:w-[250px] md:w-[200px] lg:w-[275px] xl:w-[700px] xl:h-[400px] h-full object-cover ">
                 </a>
             </div>
 
-            <div class="flex flex-col justify-center items-center py-2  md:w-1/2 h-auto ">
+            <div class="flex flex-col justify-center items-center py-2  md:w-1/2 h-auto">
                 <h2
                     class="py-5 px-5 text-lg md:text-xl lg:text-2xl xl:text-3xl uppercase text-center  font-letraHeader">
                     precio habitación</h2>
 
-                    
-                    <p class="uppercase text-xs md:text-base lg:text-lg habitacion" id="habitacion" name="habitacion">{{hab.precioHabitacion}}</p> <p>€</p>
+
+                <p class="uppercase text-xs md:text-base lg:text-lg habitacion" id="habitacion" name="habitacion">
+                    {{hab.precioHabitacion}}€</p>
                 <h2
                     class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader">
                     régimen alimentición</h2>
-
-                <div class="flex flex-col justify-between md:items-start" id="regimenes">
-                    <p class="uppercase text-xs md:text-base lg:text-lg"><br><input type="radio" name="regimen" onclick="seleccion(this.value)" value="{{hab.desayuno}}">
+       
+                <div class="flex flex-col justify-between md:items-start divRegimen" id="regimenes">
+                    <p class="uppercase text-xs md:text-base lg:text-lg" ><br><input type="radio"
+                            name="regimen" onclick="seleccion(this.value)" value="{{hab.desayuno}}">
                         alojamiento y desayuno:{{hab.desayuno}}€</p>
-                    <p class="uppercase text-xs md:text-base lg:text-lg"><br><input type="radio" name="regimen" onclick="seleccion(this.value)" value="{{hab.precioAlmuerzo}}"> media
+                    <p class="uppercase text-xs md:text-base lg:text-lg"><br><input type="radio" name="regimen"
+                            onclick="seleccion(this.value)" value="{{hab.precioAlmuerzo}}"> media
                         pensión: {{hab.precioAlmuerzo}}€</p>
-                    <p class="uppercase text-xs md:text-base lg:text-lg"><br><input type="radio" name="regimen" onclick="seleccion(this.value)" value="{{hab.precioCena}}"> pensión
+                    <p class="uppercase text-xs md:text-base lg:text-lg"><br><input type="radio" name="regimen"
+                            onclick="seleccion(this.value)" value="{{hab.precioCena}}"> pensión
                         completa: {{hab.precioCena}}€</p>
-                    
-                   
+
+
                 </div>
-                <div class="flex items-center justify-center">
+                <div class="flex items-center justify-center divBoton">
                     <input type="button" value="reservar"
-                            class="p-5 bg-blue-400 m-6 rounded-xl uppercase text-white botonDisponibilidad" id="botonDisponibilidad"
-                            onclick="disponibilidad()" data-precio="{{hab.precioHabitacion}}"
-                            data-nombre="{{hab.tituloHabitacion}}" data-img="{{hab.imagenHabitacion.url}}">
-                    </div>
+                        class="p-5 bg-green-500 m-6 rounded-xl uppercase text-white botonDisponibilidad cursor-pointer"
+                        id="botonDisponibilidad" onclick="disponibilidad()" data-precio="{{hab.precioHabitacion}}"
+                        data-nombre="{{hab.tituloHabitacion}}" data-img="{{hab.imagenHabitacion.url}}">
+                </div>
             </div>
-            
-          
+
+
         </div>
         {% endfor %}
-       
+
         <br>
         <script>
-                
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-
-            const entradaRes = urlParams.get('fechaERes')
-            console.log(entradaRes)
-            const salidaRes = urlParams.get('fechaSRes')
-            var entrada= document.getElementById("entrada").value;
-            var salida= document.getElementById("salida").value;
-
-            entrada=entradaRes;
-            salida=salidaRes;
+         
             function seleccion() {
-                
+
 
                 //document.getElementById("result").innerHTML = document.getElementById("habitacion");
-               
+
             }
+
+
+
         </script>
     </div>
     {% include "partials/footer.njk" %}

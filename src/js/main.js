@@ -85,8 +85,11 @@ if (document.getElementById("botonDisponibilidad")) {
   var boton = document.querySelectorAll(".botonDisponibilidad");
   boton.forEach((element) => {
     var resultado = element.addEventListener("click", disponibilidad);
-
+   
+   
+    
     function disponibilidad() {
+      if( document.getElementById("regimenes")){
       if (
         document.querySelector("input[name = regimen]:checked") &&
         document.getElementById("entrada").value !== "" &&
@@ -100,7 +103,7 @@ if (document.getElementById("botonDisponibilidad")) {
           var regimen = document.querySelector(
             "input[name = regimen]:checked"
           ).value;
-
+          
           let params = {
             hab: element.dataset.precio,
             fechaE: document.getElementById("entrada").value,
@@ -119,8 +122,91 @@ if (document.getElementById("botonDisponibilidad")) {
             )
             .join("&");
 
-          window.location.href =
-            "/datospersonalesReserva?" + query;
+          window.location.href = "/datospersonalesReserva?" + query;
+
+          fetch(window.location.href)
+            .then((data) => data.text())
+            .then((text) => {
+              console.log("request succeeded with JSON response", text);
+            })
+            .then((params) => {
+              console.log("Debe introducir los datos", params);
+            })
+            .catch(function (error) {
+              console.log("request failed", error);
+            });
+        } else {
+          alert(
+            "Introdujo la Fecha de Salida menor que de Entrada, por favor introduzcalo de nuevo"
+          );
+        }
+      } else {
+        alert("Introduzca todos los campos por favor");
+      }
+    }}
+  });
+}
+
+var boton = document.querySelectorAll(".botonReservaAtras");
+boton.forEach((element) => {
+  var resultado = element.addEventListener("click", reservarAhoraAtras);
+
+  function reservarAhoraAtras() {
+    let params = {
+      fechaERes: document.getElementById("entradaReserva").value,
+      fechaSRes: document.getElementById("salidaReserva").value,
+      n_pers: document.getElementById("n_personas").value,
+    };
+
+    let query = Object.keys(params)
+      .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k]))
+      .join("&");
+
+    window.location.href = "/reserva?" + query;
+
+    fetch(window.location.href)
+      .then((data) => data.text())
+      .then((text) => {
+        console.log("request succeeded with JSON response", text);
+      })
+      .then((params) => {
+        console.log("Debe introducir los datos", params);
+      })
+      .catch(function (error) {
+        console.log("request failed", error);
+      });
+  }
+});
+
+if (document.getElementById("botonReserva")) {
+  var boton = document.querySelectorAll(".botonReserva");
+  boton.forEach((element) => {
+    var resultado = element.addEventListener("click", reservarAhora);
+
+    function reservarAhora() {
+      if (
+        document.getElementById("entradaReserva").value !== "" &&
+        document.getElementById("salidaReserva").value !== ""
+      ) {
+        if (
+          document.getElementById("salidaReserva").value >
+          document.getElementById("entradaReserva").value
+        ) {
+          let params = {
+            fechaERes: document.getElementById("entradaReserva").value,
+            fechaSRes: document.getElementById("salidaReserva").value,
+            n_pers: document.getElementById("n_personas").value,
+
+            // dif: document.getElementById("demo").value
+          };
+
+          let query = Object.keys(params)
+            .map(
+              (k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k])
+            )
+            .join("&");
+
+          window.location.href = "/reserva?" + query;
 
           fetch(window.location.href)
             .then((data) => data.text())
@@ -144,6 +230,7 @@ if (document.getElementById("botonDisponibilidad")) {
     }
   });
 }
+
 let fechaEntrada = getParameterByEntrada("fechaE");
 let fechaSalida = getParameterBySalida("fechaS");
 
@@ -239,12 +326,15 @@ if (document.getElementById("textoHab")) {
 
 if (document.getElementById("botonFinalizar")) {
   var botonF = document.querySelectorAll(".botonFinalizar");
+  
+
   botonF.forEach((element) => {
     var resFinal = element.addEventListener("click", datosPSiguiente);
-
+    
     function datosPSiguiente() {
       var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-      var regexTelefono=/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{3}$/;
+      var regexTelefono =
+        /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{3}$/;
       var dateformat = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
       if (
         document.getElementById("nombrePersona").value !== "" &&
@@ -255,7 +345,13 @@ if (document.getElementById("botonFinalizar")) {
         document.getElementById("titularTarjeta").value !== "" &&
         document.getElementById("caducidadTarjeta").value !== ""
       ) {
-        if (regex.test(document.getElementById("emailPersona").value) && regexTelefono.test(document.getElementById("telefonoPersona").value) && dateformat.test(document.getElementById("caducidadTarjeta").value)) {
+        if (
+          regex.test(document.getElementById("emailPersona").value) &&
+          regexTelefono.test(
+            document.getElementById("telefonoPersona").value
+          ) &&
+          dateformat.test(document.getElementById("caducidadTarjeta").value)
+        ) {
           let params = {
             nom: document.getElementById("nombrePersona").value,
             apel: document.getElementById("apellidosPersona").value,
@@ -283,8 +379,7 @@ if (document.getElementById("botonFinalizar")) {
             )
             .join("&");
 
-          window.location.href =
-            "/confirmacionReserva?" + query;
+          window.location.href = "/confirmacionReserva?" + query;
 
           fetch(window.location.href)
             .then((data) => data.text())
@@ -508,11 +603,69 @@ function getParameterByImg(name) {
     ? ""
     : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
-var parImgCon = getParameterByImg("img");
-var imgCon = document
-  .getElementById("imgConfirmacion")
-  .setAttribute("src", parImgCon);
+if (document.getElementById("imgConfirmacion")) {
+  var parImgCon = getParameterByImg("img");
+  var imgCon = document
+    .getElementById("imgConfirmacion")
+    .setAttribute("src", parImgCon);
+}
 
+var entradaParameter = document.getElementById("entrada");
+var salidaParameter = document.getElementById("salida");
+var numero_p = document.getElementById("cantidad");
+
+var nombreConfirmacionJSON=document.getElementById("nombreConfirmacion");
+var apellidosConfirmacionJSON=document.getElementById("apellidosConfirmacion");
+var emailConfirmacionJSON=document.getElementById("emailConfirmacion");
+var telefonoConfirmacionJSON=document.getElementById("telefonoConfirmacion");
+var num_tarjetaConfirmacionJSON=document.getElementById("num_TarjetaConfirmacion");
+var nombreTitularConfirmacionJSON=document.getElementById("nombreTitularConfirmacion");
+var caducidadConfirmacionJSON=document.getElementById("caducidadConfirmacion");
+var fechaEntradaConfirmacionJSON=document.getElementById("fechaEntradaConfirmacion");
+var fechaSalidaConfirmacionJSON=document.getElementById("fechaSalidaConfirmacion");
+var imgConfirmacionJSON=document.getElementById("imgConfirmacion");
+var textoHabConfirmacionJSON=document.getElementById("textoHabConfirmacion");
+
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+const entradaRes = urlParams.get("fechaERes");
+const salidaRes = urlParams.get("fechaSRes");
+const numeroRes = urlParams.get("n_pers");
+
+const nombreCJSON=urlParams.get("nom");
+const apellidosCJSON=urlParams.get("apel");
+
+
+const datos_reserva = {
+  entradaParameter: entradaRes,
+  salidaParameter: salidaRes,
+  numero_p: numeroRes,
+  
+ 
+};
+const datosConfirmacion={
+  nombreConfirmacionJSON:nombreCJSON,
+  apellidosConfirmacionJSON:apellidosCJSON,
+  precioFinalConf
+
+}
+console.log(datos_reserva);
+
+if(entradaParameter){
+entradaParameter.value = datos_reserva.entradaParameter;}
+if(salidaParameter){
+salidaParameter.value = datos_reserva.salidaParameter;}
+if(numero_p){
+numero_p.value = datos_reserva.numero_p;}
+
+if(document.getElementById("botonConsulta")){
+document.getElementById("botonConsulta").addEventListener("click", consultar);
+function consultar() {
+  location.reload();
+}
+}
 if (document.querySelector(".gridPanel")) {
   var grid = document.querySelector(".gridPanel");
 

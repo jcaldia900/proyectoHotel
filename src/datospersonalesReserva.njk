@@ -24,7 +24,29 @@
             </div>
         </div>
         <h2 class="text-center uppercase font-letraHeader text-5xl p-5">Datos Reserva</h2>
+        <br>
+        <div class="bg-gray-200 h-full">
+            <h3 class="uppercase text-center p-5 text-base md:text-lg lg:text-xl text-gray-500 underline">resumen</h3>
+            <div class="flex flex-col md:flex-row  md:items-center justify-between m-auto w-4/5 py-6">
 
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Fecha Entrada <p
+                        id="fechaEntrada" class="py-2  text-xs  lg:text-base text-black" ></p>
+                </h3>
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Fecha Salida <p
+                        id="fechaSalida" class="py-2  text-xs lg:text-base text-black" ></p>
+                </h3>
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Precio Final <p
+                        id="precioFinal" class="py-2 text-xs lg:text-base text-black" ></p>
+                </h3>
+                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Habitación <p id="textoHab"
+                        class="py-2 text-xs  lg:text-base text-black" ></p>
+                </h3>
+               
+               <input class="uppercase text-blue-400 underline text-xs md:text-base lg:text-lg p-5  cursor-pointer bg-gray-200" type="button" onclick="history.back()" name="Modificar información" value="Modificar información">
+
+            </div>
+        </div>
+        <br>
         <div class="hidden md:flex flex-row  px-16 py-10 bg-gray-200 relative">
             <div class="text-gray-500 text-lg underline uppercase w-1/2 ">Datos personales <svg
                     class="w-6 h-6 absolute inset-y-10 left-2" fill="currentColor" viewBox="0 0 20 20"
@@ -90,36 +112,17 @@
             </div>
 
         </div>
-        <br>
-        <div class="bg-gray-200 h-full">
-            <h3 class="uppercase text-center p-5 text-base md:text-lg lg:text-xl text-gray-500 underline">resumen</h3>
-            <div class="flex flex-col md:flex-row  md:items-center justify-between m-auto w-4/5 py-6">
-
-                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Fecha Entrada <p
-                        id="fechaEntrada" class="py-2  text-xs  lg:text-base text-black" ></p>
-                </h3>
-                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Fecha Salida <p
-                        id="fechaSalida" class="py-2  text-xs lg:text-base text-black" ></p>
-                </h3>
-                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Precio Final <p
-                        id="precioFinal" class="py-2 text-xs lg:text-base text-black" ></p>
-                </h3>
-                <h3 class="uppercase text-gray-500 text-xs md:text-base lg:text-lg p-5 ">Habitación <p id="textoHab"
-                        class="py-2 text-xs  lg:text-base text-black" ></p>
-                </h3>
+        
 
 
-            </div>
-        </div>
+        <div class="flex  justify-between divDatosSiguiente">
 
-
-        <div class="flex items-center justify-center ">
-
-            <a href="/reserva">
-                <input type="button" value="atrás" class="px-7 py-5 bg-blue-400 m-6 rounded-xl uppercase text-white ">
-            </a>
-            <input type="button" value="finalizar"
-                class="p-5 bg-blue-400 m-6 rounded-xl uppercase text-white  botonFinalizar" onclick="datosPSiguiente()" oncli
+           
+            
+            <input type="button" value="atrás" class="px-7 py-5 bg-blue-400 m-6 rounded-xl uppercase text-white " onclick="history.back()" >
+           
+            <input type="button" value="reservar"
+                class="p-5 bg-green-500 m-6 rounded-xl uppercase text-white  botonFinalizar cursor-pointer" onclick="datosPSiguiente()" oncli
                 id="botonFinalizar" >
 
         </div>
