@@ -426,7 +426,7 @@ const urlParams = new URLSearchParams(queryString);
 
 const entradaRes = urlParams.get("fechaE");
 const salidaRes = urlParams.get("fechaS");
-
+const numeroRes = urlParams.get("n_P");
 
 const nombreCJSON=urlParams.get("nom");
 const apellidosCJSON=urlParams.get("apel");
