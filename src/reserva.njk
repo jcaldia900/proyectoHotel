@@ -42,20 +42,16 @@
                 </a>-->
 
             </div>
-            <script>
 
-
-
-            </script>
         </div>
         <h3 class="text-center sm:text-xl md:text-2xl uppercase py-10 underline font-bold text-blue-400 ">Por
             favor,seleccione el régimen alimenticio de la habitación deseada</h3>
             
             {% for hab in habitacion %}
            
-        <div class="flex flex-col items-center justify-center md:flex-row py-4">
+        <!--hidden--><div class=" hidden flex-col items-center justify-center md:flex-row py-4 habitacionesDisponibles" data-tipo="{{hab.tituloHabitacion}}">
             <div class=" card-zoom md:w-1/2">
-                <h2 class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader "
+                <h2 class="py-5 px-5 text-base md:text-lg lg:text-xl xl:text-3xl uppercase text-center  font-letraHeader tipoHabitacion "
                     id="tipoHabitacion">
                     {{hab.tituloHabitacion}}</h2>
                 <a href="/{{hab.tituloHabitacion | slug }}">
@@ -92,7 +88,7 @@
                 <div class="flex items-center justify-center divBoton">
                     <input type="button" value="reservar"
                         class="p-5 bg-green-500 m-6 rounded-xl uppercase text-white botonDisponibilidad cursor-pointer"
-                        id="botonDisponibilidad" onclick="disponibilidad()" data-precio="{{hab.precioHabitacion}}"
+                        data-precio="{{hab.precioHabitacion}}" id="botonDisponibilidad"
                         data-nombre="{{hab.tituloHabitacion}}" data-img="{{hab.imagenHabitacion.url}}">
                 </div>
             </div>

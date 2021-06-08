@@ -54,10 +54,15 @@
                 {% endif %}
                 {% endfor %}
 
+                
+            </div>
+            <h2 class="uppercase  underline pt-10 text-xl md:text-2xl text-blue-500 pb-10">playas</h2>
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5  gap-10">
+                
                 {% for entornos in entorno %}
                 {% if entornos.tipo=="playa" %}
 
-                <h2 class="uppercase  underline pt-10 text-xl md:text-2xl text-blue-500 pb-10">playas</h2>
+               
                 <div class="md:flex flex-col items-center">
                     <img src="{{entornos.imagen.url}}?w=600&h=600&fit=crop" alt="" class="w-full">
                     <h3 class="uppercase text-2xl p-2 lg:p-5">{{entornos.nombre}}</h3><br>
@@ -70,8 +75,11 @@
 
                 {% endif %}
                 {% endfor %}
+
             </div>
+
             </div>
+            
             <h3 class="text-center text-blue-600 text-lg md:text-3xl lg:text-5xl bold font-letraHeader underline py-5"
                 data-aos="fade-up" data-aos-duration="2500">Porque
                 en Andalucía, hay que vivirlo intensamente.</h3>
